@@ -1,6 +1,8 @@
 # st110r2
 
-![st110r2](https://s3.amazonaws.com/null-src/images/posts/nkbm-st110r2/NKBM-ST110r2.1_rosewill_top.jpg)
+![st110r2_zoom](https://s3.amazonaws.com/null-src/images/posts/nkbm-st110r2/NKBM-ST110r21-both1.png)
+![st110r2_full](https://s3.amazonaws.com/null-src/images/posts/nkbm-st110r2/NKBM-ST110r21-both3.png)
+
 
 This is the beta QMK port of null_keyboard firmware for the NKBM-ST110r2 line of keyboard products. Not all features found in null_keyboard are present yet.
 
@@ -13,3 +15,6 @@ Make example for this keyboard (after setting up your build environment):
     make st110r2:default
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+
+![st110r2_pcb](https://s3.amazonaws.com/null-src/images/posts/nkbm-st110r2/NKBM-ST110r2_PCB.jpg)
+![st110r2_build](https://s3.amazonaws.com/null-src/images/posts/nkbm-st110r2/NKBM-ST110r2.1_rosewill_top.jpg)
