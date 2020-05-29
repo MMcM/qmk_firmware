@@ -391,7 +391,9 @@ void EVENT_USB_Device_Connect(void) {
     if (!USB_IsInitialized) {
         USB_Disable();
         USB_Init();
+#if defined(CONSOLE_ENABLE) && !defined(NO_SOF_EVENTS)
         USB_Device_EnableSOFEvents();
+#endif
     }
 }
 
@@ -451,6 +453,7 @@ static bool console_flush = false;
             ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { console_flush = b; } \
         } while (0)
 
+#ifndef NO_SOF_EVENTS
 /** \brief Event USB Device Start Of Frame
  *
  * FIXME: Needs doc
@@ -465,6 +468,7 @@ void EVENT_USB_Device_StartOfFrame(void) {
     Console_Task();
     console_flush = false;
 }
+#endif
 
 #endif
 
@@ -1021,8 +1025,10 @@ static void setup_usb(void) {
 
     USB_Init();
 
+#if defined(CONSOLE_ENABLE) && !defined(NO_SOF_EVENTS)
     // for Console_Task
     USB_Device_EnableSOFEvents();
+#endif
     print_set_sendchar(sendchar);
 }
 
@@ -1103,6 +1109,13 @@ int main(void) {
 
 #if !defined(INTERRUPT_CONTROL_ENDPOINT)
         USB_USBTask();
+#endif
+
+#if defined(CONSOLE_ENABLE) && defined(NO_SOF_EVENTS)
+        if (console_flush) {
+          Console_Task();
+          console_flush = false;
+        }
 #endif
 
         // Run housekeeping
