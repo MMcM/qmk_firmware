@@ -237,7 +237,9 @@ void EVENT_USB_Device_Connect(void) {
     if (!USB_IsInitialized) {
         USB_Disable();
         USB_Init();
+#if defined(CONSOLE_ENABLE) && !defined(NO_SOF_EVENTS)
         USB_Device_EnableSOFEvents();
+#endif
     }
 }
 
@@ -299,6 +301,7 @@ static bool console_flush = false;
             }                                   \
         } while (0)
 
+#ifndef NO_SOF_EVENTS
 /** \brief Event USB Device Start Of Frame
  *
  * FIXME: Needs doc
@@ -313,6 +316,7 @@ void EVENT_USB_Device_StartOfFrame(void) {
     console_flush_task();
     console_flush = false;
 }
+#endif
 
 #endif
 
@@ -771,8 +775,10 @@ static void setup_usb(void) {
 
     USB_Init();
 
+#if defined(CONSOLE_ENABLE) && !defined(NO_SOF_EVENTS)
     // for console_flush_task
     USB_Device_EnableSOFEvents();
+#endif
 }
 
 void protocol_setup(void) {
@@ -850,6 +856,13 @@ void protocol_post_task(void) {
 
 #if !defined(INTERRUPT_CONTROL_ENDPOINT)
     USB_USBTask();
+#endif
+
+#if defined(CONSOLE_ENABLE) && defined(NO_SOF_EVENTS)
+        if (console_flush) {
+          console_flush_task();
+          console_flush = false;
+        }
 #endif
 }
 
