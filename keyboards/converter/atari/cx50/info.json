@@ -1,0 +1,26 @@
+{
+    "keyboard_name": "Atari CX50 Keypad Converter",
+    "keyboard_folder": "converter/atari/cx50",
+    "http://www.ataricompendium.com/game_library/controllers/controllers.html#keypads",
+    "maintainer": "MMcM",
+    "width": 3,
+    "height": 4,
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":"1", "x":0, "y":0},
+                {"label":"2", "x":1, "y":0},
+                {"label":"3", "x":2, "y":0},
+                {"label":"4", "x":0, "y":1},
+                {"label":"5", "x":1, "y":1},
+                {"label":"6", "x":2, "y":1},
+                {"label":"7", "x":0, "y":2},
+                {"label":"8", "x":1, "y":2},
+                {"label":"9", "x":2, "y":2},
+                {"label":"*", "x":0, "y":3},
+                {"label":"0", "x":1, "y":3},
+                {"label":"#", "x":2, "y":3}
+            ]
+        }
+    }
+}
