@@ -1,0 +1,31 @@
+{
+    "keyboard_name": "Atari CX85 Keypad Converter",
+    "keyboard_folder": "converter/atari/cx85",
+    "https://atariwiki.org/wiki/Wiki.jsp?page=AtariCX85",
+    "maintainer": "MMcM",
+    "width": 6,
+    "height": 4,
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":"ESCAPE", "x":0, "y":0},
+                {"label":"7", "x":1.5, "y":0},
+                {"label":"8", "x":2.5, "y":0},
+                {"label":"9", "x":3.5, "y":0},
+                {"label":"-", "x":5, "y":0},
+                {"label":"NO", "x":0, "y":1},
+                {"label":"4", "x":1.5, "y":1},
+                {"label":"5", "x":2.5, "y":1},
+                {"label":"6", "x":3.5, "y":1},
+                {"label":"+ ENTER", "x":5, "y":1, "h":3},
+                {"label":"DELETE", "x":0, "y":2},
+                {"label":"1", "x":1.5, "y":2},
+                {"label":"2", "x":2.5, "y":2},
+                {"label":"3", "x":3.5, "y":2},
+                {"label":"YES", "x":0, "y":3},
+                {"label":"0", "x":1.5, "y":3, "w":2},
+                {"label":".", "x":3.5, "y":3}
+            ]
+        }
+    }
+}
