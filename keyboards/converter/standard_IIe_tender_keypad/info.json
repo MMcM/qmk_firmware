@@ -1,0 +1,42 @@
+{
+  "keyboard_name": "Track House Standard IIe Tender Keypad Converter",
+  "keyboard_folder": "converter/standard_IIe_tender_keypad",
+  "url": "https://deskthority.net/viewtopic.php?f=7&t=24321",
+  "maintainer": "MMcM",
+  "width": 7,
+  "height": 5,
+  "layouts": {
+    "LAYOUT": {
+      "key_count": 27,
+      "layout": [
+        {"label":"DEL", "x":0, "y":0},
+        {"label":"*", "x":1, "y":0},
+        {"label":"/", "x":2, "y":0},
+        {"label":"+", "x":3, "y":0},
+        {"label":"ESC", "x":5, "y":0},
+        {"label":"?", "x":6, "y":0},
+        {"label":"7", "x":0, "y":1},
+        {"label":"8", "x":1, "y":1},
+        {"label":"9", "x":2, "y":1},
+        {"label":",", "x":3, "y":1},
+        {"label":"(", "x":5, "y":1},
+        {"label":")", "x":6, "y":1},
+        {"label":"4", "x":0, "y":2},
+        {"label":"5", "x":1, "y":2},
+        {"label":"6", "x":2, "y":2},
+        {"label":"-", "x":3, "y":2},
+        {"label":"DOWN", "x":5, "y":2},
+        {"label":"UP", "x":6, "y":2},
+        {"label":"1", "x":0, "y":3},
+        {"label":"2", "x":1, "y":3},
+        {"label":"3", "x":2, "y":3},
+        {"label":"ENTER", "x":3, "y":2, "h":3},
+        {"label":"LEFT", "x":5, "y":3},
+        {"label":"RIGHT", "x":6, "y":3},
+        {"label":"0", "x":0, "y":4, "w":2},
+        {"label":".", "x":2, "y":4},
+        {"label":"SPACE", "x":5, "y":4, "w":2}
+      ]
+    }
+  }
+}
