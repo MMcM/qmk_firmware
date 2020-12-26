@@ -16,8 +16,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <stdint.h>
-#include <avr/io.h>
-#include <util/delay.h>
 
 #include "serial.h"
 #include "serial_mouse.h"
