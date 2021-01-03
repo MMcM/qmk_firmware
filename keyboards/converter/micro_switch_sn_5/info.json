@@ -1,0 +1,19 @@
+{
+    "keyboard_name": "Micro Switch SN-series 5-key keypad",
+    "url": "...",
+    "maintainer": "qmk",
+    "width": 1,
+    "height": 5,
+    "layouts": {
+        "LAYOUT": {
+            "key_count": 5,
+            "layout": [
+                {"label": "A/C", "x": 0, "y": 0},
+                {"label": "PB ↑", "x": 0, "y": 1},
+                {"label": "S/F", "x": 0, "y": 2},
+                {"label": "PB ↓", "x": 0, "y": 3},
+                {"label": "B/D", "x": 0, "y": 4},
+            ]
+        }
+    }
+}
