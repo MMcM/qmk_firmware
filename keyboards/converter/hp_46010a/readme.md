@@ -9,7 +9,7 @@ Hardware Supported: HP 46010A, Teensy 2.0
 
 Make example for this keyboard (after setting up your build environment):
 
-    make converter/HP_46010A:default
+    make converter/hp_46010a:default
     
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 
