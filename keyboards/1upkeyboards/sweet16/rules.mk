@@ -1,6 +1,6 @@
 # Build Options
 #
-DEFAULT_FOLDER = 1upkeyboards/sweet16/v1
+DEFAULT_FOLDER = 1upkeyboards/sweet16/v1/promicro
 #BOOTMAGIC_ENABLE = full # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes  # Mouse keys
 EXTRAKEY_ENABLE = yes  # Audio control and System control
