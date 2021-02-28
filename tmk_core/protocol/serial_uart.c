@@ -80,8 +80,8 @@ POSSIBILITY OF SUCH DAMAGE.
 void serial_init(void) {
     do {
         // Set baud rate
-        UBRR1L = SERIAL_UART_UBRR;
-        UBRR1L = SERIAL_UART_UBRR >> 8;
+        UBRR1L = (uint8_t)SERIAL_UART_UBRR;
+        UBRR1H = (uint16_t)SERIAL_UART_UBRR >> 8;
         SERIAL_UART_INIT_CUSTOM;
     } while (0);
 }
