@@ -1,12 +1,36 @@
 {
-  "keyboard_name": "Toshiba Numeric Keypad Converter",
-  "keyboard_folder": "converter/toshiba_numeric_keypad",
-  "url": "https://deskthority.net/viewtopic.php?f=7&t=24556",
+  "manufacturer": "QMK",
+  "keyboard_name": "Compaq Numeric Keypad Converter",
   "maintainer": "MMcM",
-  "width": 4,
   "height": 7,
+  "width": 4,
+  "bootloader": "caterina",
+  "features": {
+    "api_sysex": false,
+    "audio": false,
+    "backlight": false,
+    "bluetooth": false,
+    "bootmagic": false,
+    "command": true,
+    "console": true,
+    "extrakey": false,
+    "midi": false,
+    "mousekey": false,
+    "nkro": false,
+    "rgblight": false,
+    "sleep_led": false,
+    "unicode": false
+  },
+  "processor": "atmega32u4",
+  "url": "https://deskthority.net/viewtopic.php?f=7&t=24556",
+  "usb": {
+    "device_ver": "0x0001",
+    "pid": "0x2697",
+    "vid": "0xFEED"
+  },
   "layouts": {
     "LAYOUT": {
+      "key_count": 24,
       "layout": [
         {"label":"Home", "x":0.25, "y":0.25, "w":0.75, "h":0.75},
         {"label":"Up", "x":1, "y":0.25, "w":0.75, "h":0.75},

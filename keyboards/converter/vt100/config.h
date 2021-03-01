@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0x6100
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           VT100 keyboard converter
 #define DESCRIPTION       VT100 keyboard converter
 

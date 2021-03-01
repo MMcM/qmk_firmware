@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0xC597
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           Micro Switch SN-series 5-key keypad converter
 #define DESCRIPTION       Micro Switch SN-series 5-key keypad converter
 

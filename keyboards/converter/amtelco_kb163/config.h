@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0xAC63
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           Amtelco KB163 keyboard converter
 #define DESCRIPTION       Amtelco KB163 keyboard converter
                           

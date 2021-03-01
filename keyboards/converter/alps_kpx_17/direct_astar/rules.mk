@@ -1,3 +1,3 @@
 MCU = atmega32u4
 
-BOOTLOADER = catalina
+BOOTLOADER = caterina
