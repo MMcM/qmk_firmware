@@ -1,19 +1,26 @@
 {
-    "keyboard_name": "Micro Switch SN-series 5-key keypad",
-    "url": "...",
-    "maintainer": "qmk",
-    "width": 1,
-    "height": 5,
-    "layouts": {
-        "LAYOUT": {
-            "key_count": 5,
-            "layout": [
-                {"label": "A/C", "x": 0, "y": 0},
-                {"label": "PB ↑", "x": 0, "y": 1},
-                {"label": "S/F", "x": 0, "y": 2},
-                {"label": "PB ↓", "x": 0, "y": 3},
-                {"label": "B/D", "x": 0, "y": 4},
-            ]
-        }
+  "manufacturer": "QMK",
+  "keyboard_name": "Micro Switch SN-series 5-key keypad",
+  "maintainer": "qmk",
+  "height": 5,
+  "width": 1,
+  "debounce": 0,
+  "url": "https://deskthority.net/viewtopic.php?p=477203#p477203",
+  "usb": {
+    "device_ver": "0x0001",
+    "pid": "0xC597",
+    "vid": "0xFEED"
+  },
+  "layouts": {
+    "LAYOUT": {
+      "key_count": 5,
+      "layout": [
+        {"label": "A/C", "x": 0, "y": 0},
+        {"label": "PB ↑", "x": 0, "y": 1},
+        {"label": "S/F", "x": 0, "y": 2},
+        {"label": "PB ↓", "x": 0, "y": 3},
+        {"label": "B/D", "x": 0, "y": 4},
+      ]
     }
+  }
 }

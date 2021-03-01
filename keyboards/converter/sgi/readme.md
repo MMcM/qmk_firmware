@@ -38,7 +38,7 @@ The keyboard protocol is 600 baud RS-423, so a level shifter is needed. It also 
 
 * `teensy_32` for Teensy 3.2. This should support both the keyboard and mouse that plugs into the side of the keyboard.
 
-* `teensy_lc` for Teensy LC. This too supports the mouse, but there isn't enough space to also enable the debug console.
+* `teensy_lc` for Teensy LC. There isn't enough space to enable both the serial mouse and the debug console.
 
 The 32-bit MCUs use `UART2` (`RX3` / `TX3`) for the keyboard.
 If you would rather use `UART0` (`RX1` / `TX1`), create a configuration that defines `SD_KEYBOARD` to `SD1`

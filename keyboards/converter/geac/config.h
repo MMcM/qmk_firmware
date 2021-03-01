@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0x8304
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           Geac 8340 keyboard converter
 #define DESCRIPTION       Geac 8340 keyboard converter
                           
@@ -34,5 +30,3 @@
 #define PIN_J2 D1
 
 #define KEY_ADDR(row, col) ((row << 1) | (col << 4))
-
-#define DEBOUNCE 5

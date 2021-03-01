@@ -3,7 +3,7 @@
 
 #include "quantum.h"
 
-#define KEYMAP( \
+#define LAYOUT( \
     K_NUM1, K_EQ1, K_SLSH1, K_STAR1, \
     K_7, K_8, K_9, K_MINUS1, \
     K_4, K_5, K_6, K_PLUS, \

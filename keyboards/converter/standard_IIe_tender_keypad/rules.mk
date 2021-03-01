@@ -1,4 +1,4 @@
-# MCU name
+# Teensy LC
 MCU = MKL26Z64
 USE_CHIBIOS_CONTRIB = yes
 

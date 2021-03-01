@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0x4170
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           Alphameric Type 140 keyboard converter
 #define DESCRIPTION       Alphameric Type 140 keyboard converter
                           

@@ -33,6 +33,11 @@
 #define KINETIS_SERIAL_USE_UART0              TRUE
 
 /*
+ * GPT driver system settings.
+ */
+#define KINETIS_GPT_USE_PIT3                  TRUE
+
+/*
  * USB driver settings
  */
 #define KINETIS_USB_USE_USB0                  TRUE
@@ -41,7 +46,5 @@
  *   2 for Teensy LC
  *   5 for Teensy 3.x */
 #define KINETIS_USB_USB0_IRQ_PRIORITY         5
-
-#define KINETIS_GPT_USE_PIT3                  TRUE
 
 #endif /* _MCUCONF_H_ */

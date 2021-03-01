@@ -2,7 +2,7 @@
 
 A subassembly for some kind of control equipment. Part number appears to be C59731095-001.
 
-Keyboard Maintainer: Mike McMahon (https://github.com/MMcM)  
+Keyboard Maintainer: [MMcM](https://github.com/MMcM)  
 Hardware Supported: A59731097-B, DFRobot Beetle  
 Hardware Availability: surplue from eBay
 

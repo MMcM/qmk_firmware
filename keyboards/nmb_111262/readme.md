@@ -2,7 +2,7 @@
 
 An old NMB / Hi-Tek 725 (Space Invaders) keyboard, evidently for TRW. Date-stamped 1986.
 
-Keyboard Maintainer: Mike McMahon (https://github.com/MMcM)  
+Keyboard Maintainer: [MMcM](https://github.com/MMcM)  
 Hardware Supported: NMB Hi-Tek 111262 Rev. A
 Hardware Availability: NOS from eBay
 

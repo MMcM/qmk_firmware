@@ -33,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef LED_MATRIX_ENABLE
 
-#include "ledmatrix.h"
-extern uint8_t g_key_hit[LED_DRIVER_LED_COUNT];
+#include "led_matrix.h"
+extern uint8_t g_key_hit[DRIVER_LED_TOTAL];
 
 // Track g_key_hit on key press.
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
@@ -44,7 +44,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 }
 
 void led_matrix_indicators_kb(void) {
-  for (uint8_t i = 0; i < LED_DRIVER_LED_COUNT; i++) {
+  for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
     uint8_t ticks = g_key_hit[i];
     uint8_t value = 0;
     if (ticks < 255) {

@@ -1,4 +1,4 @@
-# MCU name
+# Teensy 3.2
 MCU = MK20DX256
 
 # Enter lower-power sleep mode when on the ChibiOS idle thread
