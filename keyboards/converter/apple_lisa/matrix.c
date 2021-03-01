@@ -1,11 +1,11 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
 #include "debug.h"
 #include "matrix.h"
 #include "print.h"
 #include "timer.h"
+#include "wait.h"
 
 // PD0 (Ring on jack)
 #define DATA_PORT PORTD
@@ -38,77 +38,77 @@
 #define LAST_BIT_MICROS 8
 
 static uint8_t poll(void) {
-  // Don't poll more than once in the same couple milliseconds.
-  static uint16_t last_poll_millis = 0;
-  uint16_t now_millis = timer_read();
-  if (last_poll_millis == now_millis || last_poll_millis + 1 == now_millis)
-    return 0;
-  last_poll_millis = now_millis;
+    // Don't poll more than once in the same couple milliseconds.
+    static uint16_t last_poll_millis = 0;
+    uint16_t now_millis = timer_read();
+    if (last_poll_millis == now_millis || last_poll_millis + 1 == now_millis)
+        return 0;
+    last_poll_millis = now_millis;
 
-  cli();
+    cli();
 
-  DATA_DDR |= DATA_MASK;        // Output
-  DATA_PORT &= ~DATA_MASK;      // Low
-  _delay_us(SYNC_MICROS);
-  DATA_DDR &= ~DATA_MASK;       // Input
-  DATA_PORT |= DATA_MASK;       // Pull-up
-  _delay_us(POST_SYNC_MICROS);
+    DATA_DDR |= DATA_MASK;        // Output
+    DATA_PORT &= ~DATA_MASK;      // Low
+    wait_us(SYNC_MICROS);
+    DATA_DDR &= ~DATA_MASK;       // Input
+    DATA_PORT |= DATA_MASK;       // Pull-up
+    wait_us(POST_SYNC_MICROS);
 
-  // Don't have a microsecond timer, so just count down (about 8 16MHz cycles / 500ns per loop).
-  uint32_t counter = MAX_WAIT_MICROS * 2UL;
-  while (DATA_PIN & DATA_MASK) {       // Wait for start bit
-    if (--counter == 0) {
-      sei();
-      return 0;
+    // Don't have a microsecond timer, so just count down (about 8 16MHz cycles / 500ns per loop).
+    uint32_t counter = MAX_WAIT_MICROS * 2UL;
+    while (DATA_PIN & DATA_MASK) {       // Wait for start bit
+        if (--counter == 0) {
+            sei();
+            return 0;
+        }
     }
-  }
 
-  uint8_t result = 0;
+    uint8_t result = 0;
 
-  _delay_us(FIRST_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x10;
-  _delay_us(SHORT_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x20;
-  _delay_us(SHORT_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x40;
-  _delay_us(LONG_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x80;
-  _delay_us(LONG_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x01;
-  _delay_us(SHORT_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x02;
-  _delay_us(SHORT_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x04;
-  _delay_us(SHORT_BIT_MICROS);
-  if (DATA_PIN & DATA_MASK) result |= 0x08;
-  _delay_us(LAST_BIT_MICROS);
+    wait_us(FIRST_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x10;
+    wait_us(SHORT_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x20;
+    wait_us(SHORT_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x40;
+    wait_us(LONG_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x80;
+    wait_us(LONG_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x01;
+    wait_us(SHORT_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x02;
+    wait_us(SHORT_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x04;
+    wait_us(SHORT_BIT_MICROS);
+    if (DATA_PIN & DATA_MASK) result |= 0x08;
+    wait_us(LAST_BIT_MICROS);
 
-  sei();
-  return ~result;
+    sei();
+    return ~result;
 }
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
 inline
 static void register_key(uint8_t key) {
-  uint8_t col, row;
-  col = key & 0x07;
-  row = (key >> 3) & 0x0F;
-  if (key & 0x80) {
-    matrix[row] |=  (1 << col);
-  } else {
-    matrix[row] &= ~(1 << col);
-  }
+    uint8_t col, row;
+    col = key & 0x07;
+    row = (key >> 3) & 0x0F;
+    if (key & 0x80) {
+        matrix[row] |=  (1 << col);
+    } else {
+        matrix[row] &= ~(1 << col);
+    }
 }
 
 __attribute__ ((weak))
 void matrix_init_kb(void) {
-  matrix_init_user();
+    matrix_init_user();
 }
 
 __attribute__ ((weak))
 void matrix_scan_kb(void) {
-  matrix_scan_user();
+    matrix_scan_user();
 }
 
 __attribute__ ((weak))
@@ -120,33 +120,33 @@ void matrix_scan_user(void) {
 }
 
 void matrix_init(void) {
-  for (uint8_t i=0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
+    for (uint8_t i=0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
 
-  matrix_init_quantum();
+    matrix_init_quantum();
 }
 
 uint8_t matrix_scan(void) {
-  uint8_t code = poll();
-  if (code == 0) return 0;
+    uint8_t code = poll();
+    if (code == 0) return 0;
 
-  dprintf("%02X\n", code);
+    dprintf("%02X\n", code);
 
-  register_key(code);
+    register_key(code);
 
-  matrix_scan_quantum();
-  return 1;
+    matrix_scan_quantum();
+    return 1;
 }
 
 void matrix_print(void) {
-  print("\nr/c 01234567\n");
-  for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-    phex(row); print(": ");
-    print_bin_reverse8(matrix_get_row(row));
-    print("\n");
-  }
+    print("\nr/c 01234567\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse8(matrix_get_row(row));
+        print("\n");
+    }
 }
 
 inline
 matrix_row_t matrix_get_row(uint8_t row) {
-  return matrix[row];
+    return matrix[row];
 }

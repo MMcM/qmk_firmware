@@ -10,12 +10,12 @@ static matrix_row_t matrix[MATRIX_ROWS];
 
 __attribute__ ((weak))
 void matrix_init_kb(void) {
-  matrix_init_user();
+    matrix_init_user();
 }
 
 __attribute__ ((weak))
 void matrix_scan_kb(void) {
-  matrix_scan_user();
+    matrix_scan_user();
 }
 
 __attribute__ ((weak))
@@ -41,8 +41,8 @@ static uint16_t data_pulse_start;
 
 // Begin decoding data pulses; should be just about to get pulled up, that is, still low.
 static void data_pulse_reset(void) {
-  data_state = false;
-  data_pulse_start = TCNT3;
+    data_state = false;
+    data_pulse_start = TCNT3;
 }
 
 // 512us: wider than any actual pulse.
@@ -50,43 +50,43 @@ static void data_pulse_reset(void) {
 
 // Wait for a change in the data line and return the width of the pulse, measured from the last change (versus when called).
 static uint8_t next_data_pulse(void) {
-  bool next_state = !data_state;
-  while (true) {
-    uint16_t time = TCNT3;
-    bool state = (DATA_PIN & DATA_MASK) != 0;
-    uint16_t delta = time - data_pulse_start;
-    if (state == next_state) {
-      data_state = next_state;
-      data_pulse_start = time;
-      return (uint8_t)delta;
-    } else if (delta >= MAX_PULSE_WIDTH) {
-      return (uint8_t)delta;
+    bool next_state = !data_state;
+    while (true) {
+        uint16_t time = TCNT3;
+        bool state = (DATA_PIN & DATA_MASK) != 0;
+        uint16_t delta = time - data_pulse_start;
+        if (state == next_state) {
+            data_state = next_state;
+            data_pulse_start = time;
+            return (uint8_t)delta;
+        } else if (delta >= MAX_PULSE_WIDTH) {
+            return (uint8_t)delta;
+        }
     }
-  }
 }
 
 typedef enum { BIT_NONE, BIT_ZERO, BIT_ONE, BIT_LONG_ONE } bit_t;
 static uint8_t low_pulse, high_pulse;
 
 static bit_t next_data_bit(void) {
-  low_pulse = next_data_pulse();
-  if (low_pulse >= 5 && low_pulse <= 7) { // ~100us
-    high_pulse = next_data_pulse();
-    if (high_pulse >= 18 && high_pulse <= 20) { // ~300us
-      return BIT_ONE;
+    low_pulse = next_data_pulse();
+    if (low_pulse >= 5 && low_pulse <= 7) { // ~100us
+        high_pulse = next_data_pulse();
+        if (high_pulse >= 18 && high_pulse <= 20) { // ~300us
+            return BIT_ONE;
+        }
+        if (high_pulse >= MAX_PULSE_WIDTH) {
+            return BIT_LONG_ONE;      // Stays high because keypad is done.
+        }
+    } else if (low_pulse >= 15 && low_pulse <= 16) { // ~250us
+        high_pulse = next_data_pulse();
+        if (high_pulse >= 9 && high_pulse <= 10) { // ~150us
+            return BIT_ZERO;
+        }
+    } else {
+        high_pulse = 0;             // For debugging.
     }
-    if (high_pulse >= MAX_PULSE_WIDTH) {
-      return BIT_LONG_ONE;      // Stays high because keypad is done.
-    }
-  } else if (low_pulse >= 15 && low_pulse <= 16) { // ~250us
-    high_pulse = next_data_pulse();
-    if (high_pulse >= 9 && high_pulse <= 10) { // ~150us
-      return BIT_ZERO;
-    }
-  } else {
-    high_pulse = 0;             // For debugging.
-  }
-  return BIT_NONE;
+    return BIT_NONE;
 }
 
 static void poll(void) {
@@ -174,7 +174,7 @@ uint8_t matrix_scan(void) {
   POWER_PORT |= POWER_MASK;     // Turn off.
   DATA_DDR |= DATA_MASK;
   DATA_PORT &= ~DATA_MASK;      // Write data low.
-  _delay_us(300);
+  wait_us(300);
   DATA_DDR &= ~DATA_MASK;
   DATA_PORT |= DATA_MASK;       // Input pullup
 
@@ -188,15 +188,15 @@ uint8_t matrix_scan(void) {
 }
 
 void matrix_print(void) {
-  print("\nr/c 012345678ABCDEF\n");
-  for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-    phex(row); print(": ");
-    print_bin_reverse16(matrix_get_row(row));
-    print("\n");
-  }
+    print("\nr/c 012345678ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
 }
 
 inline
 matrix_row_t matrix_get_row(uint8_t row) {
-  return matrix[row];
+    return matrix[row];
 }

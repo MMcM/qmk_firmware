@@ -2,7 +2,7 @@
 
 Some laptop(?) keyboard using amber Omron switches with a QWERTZ layout and a Turbo button
 
-Keyboard Maintainer: Mike McMahon (https://github.com/MMcM)  
+Keyboard Maintainer: [MMcM](https://github.com/MMcM)  
 
 Make example for this keyboard (after setting up your build environment):
 
