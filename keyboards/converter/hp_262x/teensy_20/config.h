@@ -12,4 +12,4 @@
 #define KEYACT_PIN D3
 
 // Speaker (transistor) on PC6
-#define C6_AUDIO
+#define AUDIO_PIN C6

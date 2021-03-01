@@ -18,21 +18,21 @@
 #define HP_LED_7 (1<<6)
 
 void led_set(uint8_t usb_led) {
-  uint8_t led_mask = 0;
-  if (usb_led & (1<<USB_LED_NUM_LOCK))
-    led_mask |= HP_LED_6;
-  if (usb_led & (1<<USB_LED_CAPS_LOCK))
-    led_mask |= HP_LED_3;
-  if (usb_led & (1<<USB_LED_SCROLL_LOCK))
-    led_mask |= HP_LED_7;
-  if (usb_led & (1<<USB_LED_COMPOSE))
-    led_mask |= HP_LED_1;
-  if (usb_led & (1<<USB_LED_KANA))
-    led_mask |= HP_LED_2;
-  BUS_DDR = 0xFF;
-  BUS_PORT = led_mask;
-  LED_OUT_PORT |= LED_OUT_MASK;
-  asm("nop\n\t");               // 7475 latch needs 20ns.
-  LED_OUT_PORT &= ~LED_OUT_MASK;
-  BUS_DDR = BUS_PORT = 0x00;
+    uint8_t led_mask = 0;
+    if (usb_led & (1<<USB_LED_NUM_LOCK))
+        led_mask |= HP_LED_6;
+    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+        led_mask |= HP_LED_3;
+    if (usb_led & (1<<USB_LED_SCROLL_LOCK))
+        led_mask |= HP_LED_7;
+    if (usb_led & (1<<USB_LED_COMPOSE))
+        led_mask |= HP_LED_1;
+    if (usb_led & (1<<USB_LED_KANA))
+        led_mask |= HP_LED_2;
+    BUS_DDR = 0xFF;
+    BUS_PORT = led_mask;
+    LED_OUT_PORT |= LED_OUT_MASK;
+    asm("nop\n\t");               // 7475 latch needs 20ns.
+    LED_OUT_PORT &= ~LED_OUT_MASK;
+    BUS_DDR = BUS_PORT = 0x00;
 }

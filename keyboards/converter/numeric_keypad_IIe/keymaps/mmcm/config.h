@@ -16,4 +16,7 @@
 
 #pragma once
 
-// place overrides here
+#undef MATRIX_ROW_PINS
+#undef MATRIX_COL_PINS
+#define MATRIX_ROW_PINS { B2, B5, B4, B6 }
+#define MATRIX_COL_PINS { D1, D0, D7, D4, C6, E6 }

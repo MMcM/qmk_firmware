@@ -36,7 +36,7 @@ void matrix_scan_user(void) {
 #define RC(r,c) ((r<<4)|c)
 
 // Each key sends one of two codes, depending on the state of the Num Lock LED.
-// This LED is toggled by pressing the corresponing key.
+// This LED is toggled by pressing the corresponding key.
 // There is no way to set it sending serial data, so that the TX (to kbd) direction evidently does nothing.
 static const uint8_t PROGMEM serial_row_col[128] = {
   [0x41] = RC(1,1),
@@ -167,23 +167,23 @@ uint8_t matrix_scan(void) {
   if (scan_col == 0) {
     // Falling signal on the clear line.
     DATA_PORT = 0xFF;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     DATA_PORT = 0xF3;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     DATA_PORT = 0xF7;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     DATA_PORT = 0xFF;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     scan_row = 0;
   }
   if (scan_row == 0) {
     // Falling signal on counter clock.
     DATA_PORT = 0xFF;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     DATA_PORT = 0xFB;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     DATA_PORT = 0xFF;
-    _delay_us(TRIGGER_DELAY_US);
+    wait_us(TRIGGER_DELAY_US);
     scan_col++;
     if (scan_col > 4) {
       // I think it's a decade counter, so it would also work to count out 5-10 without scanning.
@@ -209,7 +209,7 @@ uint8_t matrix_scan(void) {
     DATA_PORT = 0x0F;
     break;
   }
-  _delay_us(TRIGGER_DELAY_US);
+  wait_us(TRIGGER_DELAY_US);
   bool pressed = (STATUS_PIN & STATUS_ERROR) == 0; // No error = key is pressed.
 
   uint8_t row = scan_row - 1;
@@ -232,7 +232,7 @@ uint8_t matrix_scan(void) {
 void matrix_print(void) {
   print("\nr/c 01234567\n");
   for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-    phex(row); print(": ");
+    print_hex8(row); print(": ");
     print_bin_reverse8(matrix_get_row(row));
     print("\n");
   }

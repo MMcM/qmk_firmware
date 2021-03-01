@@ -11,7 +11,7 @@
 #define UNUSED_PINS
 
 #define AUDIO_VOICES
-#define C6_AUDIO
+#define AUDIO_PIN C6
 
 #ifdef AUDIO_ENABLE
 #define AUDIO_CLICKY

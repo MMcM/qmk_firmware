@@ -13,30 +13,30 @@
 #endif
 
 void led_set(uint8_t usb_led) {
-  uint8_t led = 0;
+    uint8_t led = 0;
   
-  if (usb_led & (1<<USB_LED_NUM_LOCK))
-    led |= 1;
-  if (usb_led & (1<<USB_LED_CAPS_LOCK))
-    led |= 2;
-  if (usb_led & (1<<USB_LED_SCROLL_LOCK))
-    led |= 4;
-  if (usb_led & (1<<USB_LED_COMPOSE))
-    led |= 8;
-  if (usb_led & (1<<USB_LED_KANA))
-    led |= 16;
+    if (usb_led & (1<<USB_LED_NUM_LOCK))
+        led |= 1;
+    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+        led |= 2;
+    if (usb_led & (1<<USB_LED_SCROLL_LOCK))
+        led |= 4;
+    if (usb_led & (1<<USB_LED_COMPOSE))
+        led |= 8;
+    if (usb_led & (1<<USB_LED_KANA))
+        led |= 16;
 
-  uint8_t led1 = (led << 5) & 0x60;
+    uint8_t led1 = (led << 5) & 0x60;
 #if defined(__AVR__)
-  serial_send(led1);
+    serial_send(led1);
 #elif defined PROTOCOL_CHIBIOS
-  sdWrite(&SD_KEYBOARD, &led1, 1);
+    sdWrite(&SD_KEYBOARD, &led1, 1);
 #endif
 
-  uint8_t led2 = (led & ~3) | 1;
+    uint8_t led2 = (led & ~3) | 1;
 #if defined(__AVR__)
-  serial_send(led2);
+    serial_send(led2);
 #elif defined PROTOCOL_CHIBIOS
-  sdWrite(&SD_KEYBOARD, &led2, 1);
+    sdWrite(&SD_KEYBOARD, &led2, 1);
 #endif
 }

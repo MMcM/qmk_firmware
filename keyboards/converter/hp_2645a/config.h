@@ -3,10 +3,6 @@
 
 #include "config_common.h"
 
-#define VENDOR_ID         0xFEED
-#define PRODUCT_ID        0x2645
-#define DEVICE_VER        1
-#define MANUFACTURER      QMK
 #define PRODUCT           HP 2645A keyboard converter
 #define DESCRIPTION       HP 2645A keyboard converter
 
@@ -48,4 +44,4 @@
 #define RESET_MASK (1<<7)
 
 // BEEP on PC6
-#define C6_AUDIO
+#define AUDIO_PIN C6

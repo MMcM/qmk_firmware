@@ -1,6 +1,6 @@
 MCU = atmega32u4
 
-BOOTLOADER = catalina
+BOOTLOADER = caterina
 
 CUSTOM_MATRIX = yes
 

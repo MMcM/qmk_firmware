@@ -23,25 +23,25 @@
 #define PERICOM_BEEP (1<<7)
 
 void led_set(uint8_t usb_led) {
-  uint8_t leds = 0;
+    uint8_t leds = 0;
 
-  if (usb_led & (1<<USB_LED_NUM_LOCK))
-    leds |= PERICOM_LED_L1;
+    if (usb_led & (1<<USB_LED_NUM_LOCK))
+        leds |= PERICOM_LED_L1;
 
-  // USB_LED_CAPS_LOCK is already covered by its own LED under the key cap.
-  // There is no way to synchronize this state should another keyboard change it.
-  // Also, the power-on state is CAPS LOCK on (the appropriate make code is sent).
+    // USB_LED_CAPS_LOCK is already covered by its own LED under the key cap.
+    // There is no way to synchronize this state should another keyboard change it.
+    // Also, the power-on state is CAPS LOCK on (the appropriate make code is sent).
 
-  if (usb_led & (1<<USB_LED_SCROLL_LOCK))
-    leds |= PERICOM_LED_L4;     // Wait
-  if (usb_led & (1<<USB_LED_COMPOSE))
-    leds |= PERICOM_LED_L3;     // Compose
-  if (usb_led & (1<<USB_LED_KANA))
-    leds |= PERICOM_LED_L5;     // Print
+    if (usb_led & (1<<USB_LED_SCROLL_LOCK))
+        leds |= PERICOM_LED_L4;     // Wait
+    if (usb_led & (1<<USB_LED_COMPOSE))
+        leds |= PERICOM_LED_L3;     // Compose
+    if (usb_led & (1<<USB_LED_KANA))
+        leds |= PERICOM_LED_L5;     // Print
 
 #if defined(__AVR__)
-  serial_send(leds);
+    serial_send(leds);
 #elif defined PROTOCOL_CHIBIOS
-  sdWrite(&SD1, &leds, 1);
+    sdWrite(&SD1, &leds, 1);
 #endif
 }
