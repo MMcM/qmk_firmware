@@ -7,6 +7,10 @@
 #include <avr/io.h>
 #include "protocol/serial.h"
 
+#ifdef NMB_TVI_RAW
+#include "led.h"
+#endif
+
 static matrix_row_t matrix[MATRIX_ROWS];
 
 __attribute__ ((weak))
@@ -32,11 +36,15 @@ void matrix_init(void) {
 
     serial_init();
   
+#ifdef RESET_PORT
     RESET_DDR &= ~RESET_MASK;     // Input, pullup.
     RESET_PORT |= RESET_MASK;
+#endif
 
     matrix_init_quantum();
 }
+
+#ifndef NMB_TVI_RAW
 
 static const uint8_t PROGMEM shifted[][2] = {
    { '\'', '"' },
@@ -199,8 +207,16 @@ uint8_t matrix_scan(void) {
         break;
 
     case RETURN_SHIFTS:
-        matrix[0] = shifts;
-        state = RETURN_CODE;
+        for (uint8_t i = 0; i < 8; i++) {
+            // One bit at a time so protocol's breaking into separate reports works.
+            if (((shifts & (1 << i)) != 0) && ((matrix[0] & (1 << i)) == 0)) {
+                matrix[0] |= (1 << i);
+                break;
+            }
+        }
+        if (matrix[0] == shifts) {
+            state = RETURN_CODE;
+        }
         break;
 
     case RETURN_CODE:
@@ -220,6 +236,75 @@ uint8_t matrix_scan(void) {
     matrix_scan_quantum();
     return 1;
 }
+
+#else
+
+// Takes a following byte
+#define CMD_5 0x05
+// Set and clear a flag
+#define CMD_6 0x06
+#define CMD_7 0x07
+// Responds with FF + some flags
+#define CMD_ID 0x08             
+// Two byte shift + ASCII
+#define CMD_COOKED 0x09
+// One byte make / break code
+#define CMD_RAW 0xA
+// + 3 low bits: middle one is Caps Lock
+#define CMD_LEDS 0x10
+
+// The keyboard is not always enabled for input, so to keep commands from getting lost, send them constantly.
+#define XMIT_PERIOD_MILLIS 10
+
+static uint8_t mode_cmd = CMD_RAW;
+static uint8_t led_cmd = CMD_LEDS;
+
+uint8_t matrix_scan(void) {
+    debug_enable = true;
+
+    int16_t data = serial_recv2();
+    if (data >= 0) {
+        uint8_t code = data & 0xFF;
+        dprintf("%02X\n", code);
+        // It is possible that the keyboard hasn't yet received the raw mode command.
+        // It is better to lose characters than to generate garbage, so suppress 00 + xx, which means unshifted ASCII (or shift key press / release).
+        static bool suppress = false;
+        if (code == 0x00) {
+            suppress = true;
+        } else if (suppress) {
+            suppress = false;
+        } else {
+            uint8_t row = (code >> 4) & 0x07;
+            uint8_t col = code & 0x0F;
+            if (code & 0x80) {
+                matrix[row] &= ~(1 << col);
+            } else {
+                matrix[row] |= (1 << col);
+            }
+        }
+    };
+
+    static uint16_t last_xmit_time = 0;
+    uint16_t now = timer_read();
+    if (now - last_xmit_time > XMIT_PERIOD_MILLIS) {
+        static bool mode = false;
+        mode = !mode;
+        serial_send(mode ? mode_cmd : led_cmd);
+        last_xmit_time = now;
+    }
+
+    matrix_scan_quantum();
+    return 1;
+}
+
+void led_set(uint8_t usb_led) {
+    uint8_t cmd = CMD_LEDS;
+    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+        cmd |= (1 << 1);
+    led_cmd = cmd;
+}
+
+#endif
 
 void matrix_print(void) {
     print("\nr/c 012345678ABCDEF\n");
