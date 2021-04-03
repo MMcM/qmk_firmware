@@ -46,4 +46,5 @@ make illuminati/is0:mmcm SILENT=true &&
 make boardsource/3x4:mmcm SILENT=true &&
 make 1upkeyboards/sweet16/v1/proton_c:mmcm SILENT=true &&
 make keyhive/maypad:mmcm SILENT=true &&
-make converter/nmb_tvi SILENT=true
+make converter/nmb_tvi SILENT=true &&
+make converter/dg_6246a SILENT=true
