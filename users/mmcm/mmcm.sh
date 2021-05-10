@@ -48,4 +48,5 @@ make 1upkeyboards/sweet16/v1/proton_c:mmcm SILENT=true &&
 make keyhive/maypad:mmcm SILENT=true &&
 make converter/nmb_tvi SILENT=true &&
 make converter/dg_6246a SILENT=true &&
-make converter/micro_switch_sd_16604 SILENT=true
+make converter/micro_switch_sd_16604 SILENT=true &&
+make converter/trs_80 SILENT=true
