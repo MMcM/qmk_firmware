@@ -52,4 +52,5 @@ make converter/micro_switch_sd_16604 SILENT=true &&
 make converter/trs_80 SILENT=true &&
 make converter/teleray_20he SILENT=true &&
 make converter/ibm_lpfk SILENT=true &&
+make converter/apollo SILENT=true &&
 true
