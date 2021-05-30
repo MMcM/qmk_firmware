@@ -25,3 +25,4 @@
 
 // Up to 12 is supported elsewhere in code, but tends to be more distracting when used for this.
 #define BACKLIGHT_LEVELS 4
+#define LED_MATRIX_KEYPRESSES
