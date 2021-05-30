@@ -34,30 +34,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef LED_MATRIX_ENABLE
 
 #include "led_matrix.h"
-extern uint8_t g_key_hit[DRIVER_LED_TOTAL];
 
-// Track g_key_hit on key press.
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-  process_led_matrix(keycode, record);
-  return true;
+    // Update g_last_hit_tracker.
+    process_led_matrix(record->event.key.row, record->event.key.col, record->event.pressed);
+    return true;
 }
 
 void led_matrix_indicators_kb(void) {
-  for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
-    uint8_t ticks = g_key_hit[i];
-    uint8_t value = 0;
-    if (ticks < 255) {
-      if (ticks < 64) {
-        value = LED_MATRIX_MAXIMUM_BRIGHTNESS;
-      } else if (ticks < 128) {
-        value = LED_MATRIX_MAXIMUM_BRIGHTNESS / 2;
-      } else {
-        value = LED_MATRIX_MAXIMUM_BRIGHTNESS / 4;
-      }
+    // Heatmap but with fewer possible PWM values.
+    led_matrix_set_value_all(0);
+    uint8_t count = g_last_hit_tracker.count;
+    for (uint8_t i = 0; i < count; i++) {
+        uint16_t tick = g_last_hit_tracker.tick[i];
+        if (tick < 255) {
+            uint8_t value;
+            if (tick < 64) {
+                value = LED_MATRIX_MAXIMUM_BRIGHTNESS;
+            } else if (tick < 128) {
+                value = LED_MATRIX_MAXIMUM_BRIGHTNESS / 2;
+            } else {
+                value = LED_MATRIX_MAXIMUM_BRIGHTNESS / 4;
+            }
+            led_matrix_set_value(g_last_hit_tracker.index[i], value);
+        }
     }
-    led_matrix_set_index_value(i, value);
-  }
 }
 
 #endif

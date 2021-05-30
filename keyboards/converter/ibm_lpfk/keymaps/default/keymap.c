@@ -34,24 +34,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef LED_MATRIX_ENABLE
 
 #include "led_matrix.h"
-extern uint8_t g_last_led_hit[];
-extern uint8_t g_last_led_count;
 
-// Track g_last_led_xxx on key press.
+// Light the last key hit (no fade possible with only on/off).
+static uint8_t last_led_index = 0xFF;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-    process_led_matrix(keycode, record);
+    // No need for all of process_led_matrix, since just tracking this one.
+    if (record->event.pressed) {
+        uint8_t led[1];
+        if (led_matrix_map_row_column_to_led(record->event.key.row, record->event.key.col, led) > 0) {
+            last_led_index = led[0];
+        }
+    }
     return true;
 }
 
-// Light the last key hit (no fade possible with only on/off).
 void led_matrix_indicators_kb(void) {
-    static uint8_t last_led_index = 0xFF;
-    if (g_last_led_count > 0) {
-        last_led_index = g_last_led_hit[0];
-    }
     for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
-        led_matrix_set_index_value(i, i == last_led_index ? LED_MATRIX_MAXIMUM_BRIGHTNESS : 0);
+        led_matrix_set_value(i, i == last_led_index ? LED_MATRIX_MAXIMUM_BRIGHTNESS : 0);
     }
 }
 
