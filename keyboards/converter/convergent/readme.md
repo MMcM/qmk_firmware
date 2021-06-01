@@ -27,16 +27,13 @@ The default assumes the last of these.
 
 ## Connections
 
-The cable from the keyboard has a DE9 connector.
+The original keyboard's cable had a DE9 connector.
+Newer ones had an 8-pin SDL connector and a cable that exchanges pins 2 and 7; the following is for the computer end of that cable.
 
-| DE9 | Signal  |
-|-----|---------|
-| 1   | RXD     |
-| 2   | GND     |
-| 3   | TXD     |
-| 4   | GND     |
-| 5   | RESET   |
-| 6   | +5V     |
-| 7   | +5V     |
-| 8   | GND     |
-| 9   | GND     |
+| DE9   | SDL | Signal               | AVR |
+|-------|-----|----------------------|-----|
+|2,4,8,9|1,6,8|  Ground              | GND |
+|  6,7  | 3,4 |  +5VDC               | Vin |
+|   1   |  2  |  Data out (from kbd) | RX1 |
+|   3   |  7  |  Data in (to kbd)    | TX1 |
+|   5   |  5  |  Reset               | D0  |
