@@ -27,7 +27,7 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT": {
+    "LAYOUT_K1": {
       "key_count": 98,
       "layout": [
         { "label":"NEXT PAGE", "x":0, "y":0 },
