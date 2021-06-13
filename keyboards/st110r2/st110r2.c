@@ -16,7 +16,7 @@
 
 #include "quantum.h"
 #include "st110r2.h"
-#include "led.h"
+#include "st110r2_led.h"
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
