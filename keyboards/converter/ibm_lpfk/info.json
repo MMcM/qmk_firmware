@@ -12,7 +12,7 @@
     "bootmagic": false,
     "command": true,
     "console": true,
-    "extrakey": false,
+    "extrakey": true,
     "led_matrix": true,
     "midi": false,
     "mousekey": false,

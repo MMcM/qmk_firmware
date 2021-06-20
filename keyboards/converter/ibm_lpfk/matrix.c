@@ -34,6 +34,7 @@ void matrix_scan_user(void) {
 static bool enabled;
 static uint16_t last_check_time;
 #define CHECK_INTERVAL 200
+#define RELEASE_INTERVAL 10
 
 #if defined(__AVR__)
 static inline void send_cmd(uint8_t cmd) {
@@ -68,11 +69,8 @@ void matrix_init(void) {
 }
 
 uint8_t matrix_scan(void) {
-    debug_enable = true;
+    debug_enable = debug_keyboard = true;
 
-    // There are no up transitions.
-    for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
-    
     uint8_t data;
     bool have_data;
 
@@ -94,14 +92,25 @@ uint8_t matrix_scan(void) {
     }
 #endif
 
+    static bool release_needed = false;
+    static uint16_t last_press_time = 0;
+
     if (have_data) {
         dprintf("Received: %02X\n", data);
+
+        if (release_needed) {
+            // Two presses in very rapid succession.
+            for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
+            release_needed = false;
+        }
 
         if (enabled) {
             if (data < 32) {
                 uint8_t row = data >> 3;
                 uint8_t col = data & 7;
                 matrix[row] |= (1 << col);
+                release_needed = true;
+                last_press_time = timer_read();
             } else if (data == 0x80) {
                 // LED retransmit needed (.flush is called by led_matrix_task, which is called by matrix_scan_quantum).
                 extern bool led_retransmit_needed;
@@ -122,6 +131,13 @@ uint8_t matrix_scan(void) {
         if (now - last_check_time > CHECK_INTERVAL) {
             send_cmd(0x06);         // Read configuration
             last_check_time = now;
+        }
+    } else if (release_needed) {
+        uint16_t now = timer_read();
+        if (now - last_press_time > RELEASE_INTERVAL) {
+            // There are no up transitions. Release all after a short interval.
+            for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
+            release_needed = false;
         }
     }
 
