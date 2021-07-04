@@ -54,4 +54,5 @@ make converter/teleray_20he SILENT=true &&
 make converter/ibm_lpfk SILENT=true &&
 make converter/apollo SILENT=true &&
 make st110r2:mmcm SILENT=true &&
+make converter/ibm_pcjr SILENT=true &&
 true
