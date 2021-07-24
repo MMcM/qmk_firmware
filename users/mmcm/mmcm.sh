@@ -56,4 +56,5 @@ make converter/apollo SILENT=true &&
 make st110r2:mmcm SILENT=true &&
 make converter/ibm_pcjr SILENT=true &&
 make converter/ti_silent_743 SILENT=true &&
+make keebio/wtf60:mmcm SILENT=true &&
 true
