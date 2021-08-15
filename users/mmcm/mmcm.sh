@@ -58,4 +58,5 @@ make converter/ibm_pcjr SILENT=true &&
 make converter/ti_silent_743 SILENT=true &&
 make keebio/wtf60:mmcm SILENT=true &&
 make gh60/revc:mmcm_modern_m0110 SILENT=true &&
+make swiftrax/retropad:mmcm SILENT=true &&
 true
