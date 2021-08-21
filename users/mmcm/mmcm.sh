@@ -61,4 +61,5 @@ make gh60/revc:mmcm_modern_m0110 SILENT=true &&
 make swiftrax/retropad:mmcm SILENT=true &&
 make bm16a:mmcm SILENT=true &&
 make bm43a:mmcm SILENT=true &&
+make tkc/tkc1800:mmcm SILENT=true &&
 true
