@@ -62,4 +62,5 @@ make swiftrax/retropad:mmcm SILENT=true &&
 make kprepublic/bm16a:mmcm SILENT=true &&
 make kprepublic/bm43a:mmcm SILENT=true &&
 make tkc/tkc1800:mmcm SILENT=true &&
+make converter/oasys SILENT=true &&
 true
