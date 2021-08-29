@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include "debug.h"
 #include "matrix.h"
-#include "serial.h"
+#include "protocol/serial.h"
 #include "print.h"
 
 static matrix_row_t matrix[MATRIX_ROWS], incoming_matrix[MATRIX_ROWS];

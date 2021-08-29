@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include "debug.h"
 #include "matrix.h"
-#include "serial.h"
+#include "protocol/serial.h"
 #include "print.h"
 
 #define AC_DDR DDRB

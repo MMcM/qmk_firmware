@@ -30,7 +30,7 @@
   },
   "layouts": {
     "LAYOUT_110695": {
-      "key_count": 111,
+      "key_count": 113,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },
@@ -264,7 +264,7 @@
       ]
     },
     "LAYOUT_116535": {
-      "key_count": 111,
+      "key_count": 110,
       "layout": [
         { "label":"F1", "x":0.25, "y":0 },
         { "label":"F2", "x":1.25, "y":0 },
