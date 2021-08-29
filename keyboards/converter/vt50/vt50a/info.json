@@ -30,7 +30,7 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 57,
+      "key_count": 62,
       "layout": [
         { "label":"ESC", "x":0.25, "y":0 },
         { "label":"1", "x":1.25, "y":0 },

@@ -32,7 +32,7 @@
     "LAYOUT": {
       "c_macro": true,
       "filename": "keyboards/converter/apple_lisa/apple_lisa.h",
-      "key_count": 75,
+      "key_count": 76,
       "layout": [
         { "label":"`", "x":0, "y":0 },
         { "label":"1", "x":1, "y":0 },
