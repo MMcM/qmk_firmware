@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINUS, KC_EQUAL, KC_GRAVE, KC_BSPACE, KC_PAUSE, \
     KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRACKET, KC_BSLASH, KC_RBRACKET, OVERSTRIKE, KC_RALT, \
     KC_LCTRL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_QUOTE, KC_ENTER, KC_DEL, KC_PGDN, \
-    KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, LOW_SPEED, \
+    KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSHIFT, LOW_SPEED, \
     APL, KC_SPACE, HALF_DUP, ON_LINE \
   ),
 
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, UC(0x2212), UC(0x00D7), UC(0x22C4), _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, UC(0x2190), UC(0x22A2), UC(0x007B), _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, UC(0x005B), UC(0x005D), _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, UC(0x002C), UC(0x002E), UC(0x002F), _______, \
+    _______, _______, _______, _______, _______, _______, _______, _______, UC(0x002C), UC(0x002E), UC(0x002F), _______, _______, \
     _______, _______, _______, _______ \
   ),
 
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     UC(0x00A8), UC(0x00AF), UC(0x003C), UC(0x2264), UC(0x003D), UC(0x2265), UC(0x003E), UC(0x2260), UC(0x2228), UC(0x2227), UC(0x002B), UC(0x00F7), UC(0x0024), _______, _______, \
     _______, UC(0x003F), UC(0x2375), UC(0x220A), UC(0x2374), UC(0x223C), UC(0x2191), UC(0x2193), UC(0x2373), UC(0x25CB), UC(0x22C6), UC(0x2192), UC(0x22A3), UC(0x007D), _______, _______, \
     _______, UC(0x237A), UC(0x2308), UC(0x230A), UC(0x005F), UC(0x2207), UC(0x2206), UC(0x2218), UC(0x0027), UC(0x2395), UC(0x0028), UC(0x0029), _______, _______, _______, \
-    _______, UC(0x2282), UC(0x2283), UC(0x2229), UC(0x222A), UC(0x22A5), UC(0x22A4), UC(0x2223), UC(0x003B), UC(0x003A), UC(0x005C), _______, \
+    _______, UC(0x2282), UC(0x2283), UC(0x2229), UC(0x222A), UC(0x22A5), UC(0x22A4), UC(0x2223), UC(0x003B), UC(0x003A), UC(0x005C), _______, _______, \
     _______, _______, _______, _______ \
   )
 } ;

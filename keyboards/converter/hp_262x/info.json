@@ -26,8 +26,8 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT": {
-      "key_count": 112,
+    "LAYOUT_STANDARD": {
+      "key_count": 68,
       "layout": [
         { "label":"up left", "x":0.5, "y":0, "w":1.5 },
         { "label":"down left", "x":1.5, "y":0, "w":1.5 },

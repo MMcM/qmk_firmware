@@ -30,7 +30,7 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 104,
+      "key_count": 105,
       "layout": [
         { "label":"RESET TERMINAL", "x":3.5, "y":0, "h":0.5 },
         { "label":"TAPE TEST", "x":4.5, "y":0, "h":0.5 },

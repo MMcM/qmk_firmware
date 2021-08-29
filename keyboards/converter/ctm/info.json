@@ -28,7 +28,7 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 105,
+      "key_count": 107,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },
