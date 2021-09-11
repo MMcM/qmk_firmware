@@ -64,4 +64,5 @@ make kprepublic/bm43a:mmcm SILENT=true &&
 make tkc/tkc1800:mmcm SILENT=true &&
 make converter/oasys SILENT=true &&
 make tkc/m0lly:mmcm SILENT=true &&
+make misonoworks/karina:mmcm SILENT=true &&
 true
