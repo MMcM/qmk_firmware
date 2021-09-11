@@ -1,0 +1,3 @@
+
+#define BACKLIGHT_PIN B7
+#define LED_CAPS_LOCK_PIN E6
