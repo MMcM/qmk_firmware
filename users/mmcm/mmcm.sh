@@ -66,4 +66,5 @@ make converter/oasys SILENT=true &&
 make tkc/m0lly:mmcm SILENT=true &&
 make misonoworks/karina:mmcm SILENT=true &&
 make jd40:mmcm SILENT=true &&
+make walletburner/neuron:mmcm SILENT=true &&
 true
