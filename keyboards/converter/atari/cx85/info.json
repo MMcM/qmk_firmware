@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Atari CX85 Keypad Converter",
   "maintainer": "MMcM",
-  "height": 4,
-  "width": 6,
   "bootloader": "halfkay",
   "debounce": 5,
   "features": {
@@ -23,7 +21,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 17,
       "layout": [
         { "label":"ESCAPE", "x":0, "y":0 },
         { "label":"7", "x":1.5, "y":0 },

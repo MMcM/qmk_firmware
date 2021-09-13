@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "HP HIL Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 22,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,

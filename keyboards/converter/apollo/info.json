@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Apollo Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 26,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 106,
       "layout": [
         { "label":"INS/MARK", "x":0, "y":0 },
         { "label":"LINE DEL", "x":1, "y":0 },

@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "NMB Televideo Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 26,
   "bootloader": "caterina",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT_110695": {
-      "key_count": 113,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },
@@ -148,7 +145,6 @@
       ]
     },
     "LAYOUT_130947": {
-      "key_count": 111,
       "layout": [
         { "label":"F1", "x":0.25, "y":0 },
         { "label":"F2", "x":1.25, "y":0 },
@@ -264,7 +260,6 @@
       ]
     },
     "LAYOUT_116535": {
-      "key_count": 110,
       "layout": [
         { "label":"F1", "x":0.25, "y":0 },
         { "label":"F2", "x":1.25, "y":0 },

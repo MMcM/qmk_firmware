@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Tektronix 4120 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 23,
   "bootloader": "caterina",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 90,
       "layout": [
         { "label":"DIALOG / CLEAR", "x":6, "y":0 },
         { "label":"SET UP", "x":7, "y":0 },

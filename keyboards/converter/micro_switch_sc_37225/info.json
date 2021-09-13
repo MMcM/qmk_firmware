@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Micro Switch SC-37225 Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 23,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 87,
       "layout": [
         { "label":"ATTN", "x":0, "y":0 },
         { "label":"CLEAR", "x":1, "y":0 },

@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Data General 6246-A Converter",
   "maintainer": "MMcM",
-  "height": 6.25,
-  "width": 24,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 107,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },

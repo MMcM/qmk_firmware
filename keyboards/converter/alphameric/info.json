@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Alphameric Type 140 Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 20.5,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -31,7 +29,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 83,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },

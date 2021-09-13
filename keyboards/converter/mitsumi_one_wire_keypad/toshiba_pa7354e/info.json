@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Toshiba Numeric Keypad Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 4,
   "bootloader": "caterina",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 17,
       "layout": [
         { "label":"Num Lock", "x":0, "y":0 },
         { "label":"/", "x":1, "y":0 },

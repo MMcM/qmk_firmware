@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Amtelco KB163 AT Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 8,
-  "width": 26,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 163,
       "layout": [
         { "label":"ON", "x":0, "y":0 },
         { "label":"OFF", "x":1, "y":0 },

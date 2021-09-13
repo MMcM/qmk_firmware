@@ -2,8 +2,6 @@
   "manufacturer": "Omron",
   "keyboard_name": "NMB 111262",
   "maintainer": "qmk",
-  "height": 6,
-  "width": 16,
   "bootloader": "unknown",
   "debounce": 5,
   "diode_direction": "COL2ROW",
@@ -22,7 +20,6 @@
     "LAYOUT": {
       "c_macro": true,
       "filename": "keyboards/omron_turbo/omron_turbo.h",
-      "key_count": 83,
       "layout": [
         { "label": "Esc", "matrix": [2, 1], "w": 1, "x": 0, "y": 0 },
         { "label": "F1", "matrix": [9, 3], "w": 1, "x": 1, "y": 0 },

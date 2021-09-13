@@ -1,8 +1,6 @@
 {
   "keyboard_name": "HP 2621 Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 16,
   "features": {
     "api_sysex": false,
     "audio": true,
@@ -22,12 +20,10 @@
   "url": "http://www.hpmuseum.net/display_item.php?hw=242",
   "usb": {
     "device_ver": "0x0001",
-    "pid": "0x2620",
     "vid": "0xFEED"
   },
   "layouts": {
     "LAYOUT_STANDARD": {
-      "key_count": 68,
       "layout": [
         { "label":"up left", "x":0.5, "y":0, "w":1.5 },
         { "label":"down left", "x":1.5, "y":0, "w":1.5 },

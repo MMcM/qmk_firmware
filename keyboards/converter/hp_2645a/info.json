@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "HP 2645A Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 23,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 105,
       "layout": [
         { "label":"RESET TERMINAL", "x":3.5, "y":0, "h":0.5 },
         { "label":"TAPE TEST", "x":4.5, "y":0, "h":0.5 },

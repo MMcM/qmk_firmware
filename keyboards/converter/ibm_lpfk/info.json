@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "IBM LPFK Keypad Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 6,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -32,7 +30,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 32,
       "layout": [
         { "x":1, "y":0 },
         { "x":2, "y":0 },

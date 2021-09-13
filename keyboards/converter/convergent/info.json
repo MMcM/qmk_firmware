@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Convergent Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 22,
   "features": {
     "api_sysex": false,
     "audio": false,
@@ -28,7 +26,6 @@
   },
   "layouts": {
     "LAYOUT_K1": {
-      "key_count": 98,
       "layout": [
         { "label":"NEXT PAGE", "x":0, "y":0 },
         { "label":"SCROLL UP", "x":1, "y":0 },

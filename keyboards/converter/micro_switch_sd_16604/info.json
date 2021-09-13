@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Micro Switch SD-16604 Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 12.5,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 108,
       "layout": [
         { "label":"CLEAR RESET / INIT", "x":0, "y":0, "w":1.5 },
         { "label":"F1", "x":1.5, "y":0 },

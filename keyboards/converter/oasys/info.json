@@ -26,11 +26,8 @@
     "pid": "0x6140",
     "vid": "0xFEED"
   },
-  "height": 8,
-  "width": 23,
   "layouts": {
     "LAYOUT_FMT": {
-      "key_count": 65,
       "layout": [
         { "label":"BREAK", "x":0, "y":0 },
         { "label":"COPY", "x":1.25, "y":0 },
@@ -171,7 +168,6 @@
       ]
     },
     "LAYOUT_FMT_JIS": {
-      "key_count": 64,
       "layout": [
         { "label":"BREAK", "x":0, "y":0 },
         { "label":"COPY", "x":1.25, "y":0 },

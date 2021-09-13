@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Teleray 20HE Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 7,
-  "width": 25.5,
   "features": {
     "api_sysex": false,
     "audio": false,
@@ -28,7 +26,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 113,
       "layout": [
         { "x":0, "y":0, "w":1.5 },
         { "label":"F1", "x":1.5, "y":0 },

@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Zenith Z-29 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 22,
   "bootloader": "caterina",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 91,
       "layout": [
         { "label":"SET UP", "x":0.25, "y":0 },
         { "label":"F1", "x":1.25, "y":0 },

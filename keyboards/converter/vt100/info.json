@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "VT100 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 22,
   "bootloader": "caterina",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 84,
       "layout": [
         { "label":"SET-UP", "x":1, "y":0, "w":1.5 },
         { "label":"UP", "x":12, "y":0 },

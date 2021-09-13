@@ -2,8 +2,6 @@
   "manufacturer": "NMB",
   "keyboard_name": "NMB 111262",
   "maintainer": "qmk",
-  "height": 6,
-  "width": 11,
   "bootloader": "halfkay",
   "debounce": 5,
   "diode_direction": "ROW2COL",
@@ -37,7 +35,6 @@
     "LAYOUT": {
       "c_macro": true,
       "filename": "keyboards/nmb_111262/nmb_111262.h",
-      "key_count": 57,
       "layout": [
         { "label": "BEGIN OF TEXT", "matrix": [4, 0], "w": 1, "x": 0.5, "y": 0 },
         { "label": "END OF TEXT", "matrix": [4, 1], "w": 1, "x": 1.5, "y": 0 },
