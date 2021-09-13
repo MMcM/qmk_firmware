@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Geac 8340-01 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 4,
-  "width": 6,
   "bootloader": "caterina",
   "debounce": 5,
   "features": {
@@ -24,7 +22,6 @@
     "LAYOUT": {
       "c_macro": true,
       "filename": "keyboards/converter/geac/geac.h",
-      "key_count": 67,
       "layout": [
         { "label":"f1", "x":0.5, "y":0, "w":1.5 },
         { "label":"f2", "x":2, "y":0, "w":1.5 },

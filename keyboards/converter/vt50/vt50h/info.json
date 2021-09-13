@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "VT50h Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 22,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 80,
       "layout": [
         { "label":"ESC", "x":0.25, "y":0 },
         { "label":"1", "x":1.25, "y":0 },
