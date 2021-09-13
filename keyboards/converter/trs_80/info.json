@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "TRS-80 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 14.25,
   "bootloader": "halfkay",
   "debounce": 5,
   "features": {
@@ -24,7 +22,6 @@
     "LAYOUT": {
       "c_macro": true,
       "filename": "keyboards/converter/trs_80/trs_80.h",
-      "key_count": 53,
       "layout": [
         { "label":"1", "x":0.5, "y":0 },
         { "label":"2", "x":1.5, "y":0 },

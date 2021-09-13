@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "Cortron 55-500215 Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 30,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 92,
       "layout": [
         { "label":"CODE", "x":0, "y":0 },
         { "label":"1", "x":3, "y":0 },

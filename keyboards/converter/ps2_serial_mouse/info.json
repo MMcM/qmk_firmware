@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "PS2 keyboard with Serial Mouse Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 22.5,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -31,7 +29,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 101,
       "layout": [
         { "label":"Esc", "x":0, "y":0 },
         { "label":"F1", "x":2, "y":0 },

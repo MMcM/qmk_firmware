@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "TI Silent 743 Converter",
   "maintainer": "MMcM",
-  "height": 5,
-  "width": 16,
   "bootloader": "halfkay",
   "features": {
     "api_sysex": false,
@@ -30,7 +28,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 108,
       "layout": [
         { "label":"1 ¨ !", "x":0.5, "y":0 },
         { "label":"2 ¯ @", "x":1.5, "y":0 },

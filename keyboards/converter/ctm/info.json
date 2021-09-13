@@ -2,8 +2,6 @@
   "manufacturer": "QMK",
   "keyboard_name": "CTM Keyboard Converter",
   "maintainer": "MMcM",
-  "height": 6,
-  "width": 25,
   "features": {
     "api_sysex": false,
     "audio": false,
@@ -28,7 +26,6 @@
   },
   "layouts": {
     "LAYOUT": {
-      "key_count": 107,
       "layout": [
         { "label":"F1", "x":0, "y":0 },
         { "label":"F2", "x":1, "y":0 },
