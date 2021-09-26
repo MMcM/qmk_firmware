@@ -68,4 +68,7 @@ make misonoworks/karina:mmcm SILENT=true &&
 make jd40:mmcm SILENT=true &&
 make walletburner/neuron:mmcm SILENT=true &&
 make spacey:mmcm SILENT=true &&
+make converter/qume/qvt_101 SILENT=true &&
+make converter/qume/qvt_101_plus SILENT=true &&
+make converter/qume/qvt_61 SILENT=true &&
 true
