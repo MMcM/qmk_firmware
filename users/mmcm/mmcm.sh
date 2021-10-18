@@ -71,4 +71,5 @@ make spacey:mmcm SILENT=true &&
 make converter/qume/qvt_101 SILENT=true &&
 make converter/qume/qvt_101_plus SILENT=true &&
 make converter/qume/qvt_61 SILENT=true &&
+make bx_220 SILENT=true &&
 true
