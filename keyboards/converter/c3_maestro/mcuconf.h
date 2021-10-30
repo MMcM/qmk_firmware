@@ -22,21 +22,15 @@
 /*
  * HAL driver system settings.
  */
-
-/* Select the MCU clocking mode below by enabling the appropriate block. */
-
-/* PEE mode - 48MHz system clock driven by external crystal. */
-#if 1
+/* PEE mode - 48MHz system clock driven by (16 MHz) external crystal. */
 #define KINETIS_MCG_MODE            KINETIS_MCG_MODE_PEE
 #define KINETIS_PLLCLK_FREQUENCY    96000000UL
 #define KINETIS_SYSCLK_FREQUENCY    48000000UL
-#endif
 
 /*
  * SERIAL driver system settings.
  */
 #define KINETIS_SERIAL_USE_UART0              TRUE
-
 
 /*
  * USB driver settings

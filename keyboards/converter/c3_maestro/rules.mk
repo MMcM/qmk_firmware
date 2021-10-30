@@ -1,17 +1,9 @@
-# MCU info
-MCU_FAMILY = KINETIS
-MCU_SERIES = K20x
-MCU_LDSCRIPT = MK20DX256
-MCU_STARTUP = k20x7
-BOARD = PJRC_TEENSY_3_1
-MCU = cortex-m4
-ARMV = 7
-BOOTLOADER = halfkay
+# Teensy 3.2
+MCU = MK20DX256
 
+# Enter lower-power sleep mode when on the ChibiOS idle thread
+OPT_DEFS += -DCORTEX_ENABLE_WFI_IDLE=TRUE
 
-BOOTMAGIC_ENABLE = no       
-MOUSEKEY_ENABLE = yes       
-EXTRAKEY_ENABLE = yes       
-CONSOLE_ENABLE = yes        
-COMMAND_ENABLE = yes             
-NKRO_ENABLE = yes           
+CUSTOM_MATRIX = yes
+
+SRC = matrix.c
