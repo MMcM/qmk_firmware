@@ -16,7 +16,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+
+#if defined(__AVR__)
 #include "protocol/serial.h"
+#elif defined PROTOCOL_CHIBIOS
+#include "hal.h"
+#endif
+
+#if defined(__AVR__)
+#define sun_send serial_send
+#elif defined PROTOCOL_CHIBIOS
+static inline void sun_send(uint8_t data) {
+    sdWrite(&SD1, &data, 1);
+}
+#endif
 
 void led_set(uint8_t usb_led)
 {
@@ -27,6 +40,6 @@ void led_set(uint8_t usb_led)
     if (usb_led & (1<<USB_LED_CAPS_LOCK))   sun_led |= (1<<3);
     xprintf("LED: %02X\n", usb_led);
 
-    serial_send(0x0E);
-    serial_send(sun_led);
+    sun_send(0x0E);
+    sun_send(sun_led);
 }
