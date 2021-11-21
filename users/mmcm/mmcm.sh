@@ -74,4 +74,5 @@ make converter/qume/qvt_61 SILENT=true &&
 make bx_220 SILENT=true &&
 make converter/c3_maestro SILENT=true &&
 make converter/deko_fak SILENT=true &&
+make gh60/revc:mmcm_bow SILENT=true &&
 true
