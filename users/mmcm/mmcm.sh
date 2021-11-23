@@ -76,4 +76,5 @@ make converter/c3_maestro SILENT=true &&
 make converter/deko_fak SILENT=true &&
 make converter/sun_usb/type3:mmcm SILENT=true &&
 make gh60/revc:mmcm_bow SILENT=true &&
+make converter/uts SILENT=true &&
 true
