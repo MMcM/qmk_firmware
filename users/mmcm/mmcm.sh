@@ -78,4 +78,5 @@ make converter/sun_usb/type3:mmcm SILENT=true &&
 make gh60/revc:mmcm_bow SILENT=true &&
 make converter/uts SILENT=true &&
 make keebio/tukey:mmcm SILENT=true &&
+make navi10:mmcm SILENT=true &&
 true
