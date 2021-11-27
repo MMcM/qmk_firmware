@@ -1,0 +1,6 @@
+MCU = atmega32u4
+BOOTLOADER = atmel-dfu
+
+COMMAND_ENABLE = no
+CONSOLE_ENABLE = no
+AUDIO_ENABLE = yes
