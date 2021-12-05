@@ -2,6 +2,7 @@
 #include "debug.h"
 #include "print.h"
 
+// TODO: serial_mouse support has been removed from core.
 #ifdef SERIAL_MOUSE_ENABLE
 
 #include "protocol/serial.h"

@@ -35,14 +35,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #include "led_matrix.h"
 
+#ifndef LED_MATRIX_KEYPRESSES
+// Light the last key hit (without fade).
+static uint8_t last_led_index = 0xFF;
+#endif
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
+#ifdef LED_MATRIX_KEYPRESSES
     // Update g_last_hit_tracker.
     process_led_matrix(record->event.key.row, record->event.key.col, record->event.pressed);
+#else
+    // Cheaper version for just tracking one.
+    if (record->event.pressed) {
+        uint8_t led[1];
+        if (led_matrix_map_row_column_to_led(record->event.key.row, record->event.key.col, led) > 0) {
+            last_led_index = led[0];
+        }
+    }
+#endif
     return true;
 }
 
 void led_matrix_indicators_kb(void) {
+#ifdef LED_MATRIX_KEYPRESSES
     // Heatmap but with fewer possible PWM values.
     led_matrix_set_value_all(0);
     uint8_t count = g_last_hit_tracker.count;
@@ -60,6 +76,11 @@ void led_matrix_indicators_kb(void) {
             led_matrix_set_value(g_last_hit_tracker.index[i], value);
         }
     }
+#else
+    for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
+        led_matrix_set_value(i, i == last_led_index ? LED_MATRIX_MAXIMUM_BRIGHTNESS : 0);
+    }
+#endif
 }
 
 #endif

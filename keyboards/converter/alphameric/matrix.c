@@ -5,7 +5,7 @@
 #include "matrix.h"
 #include "print.h"
 #include "timer.h"
-#include "xt.h"
+#include "../xt_usb/xt.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
