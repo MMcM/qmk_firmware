@@ -10,4 +10,5 @@ CUSTOM_MATRIX = yes
 
 OPT_DEFS += -DNO_SOF_EVENTS
 
-SRC = matrix.c
+SRC = matrix.c ../xt_usb/xt_interrupt.c
+

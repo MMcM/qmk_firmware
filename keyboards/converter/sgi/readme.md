@@ -34,12 +34,11 @@ The keyboard protocol is 600 baud RS-423, so a level shifter is needed. It also 
 
 ## Firmware Variants
 
-* `teensy_20` for ATMega32U4. This only does the keyboard.
-
-* `teensy_32` for Teensy 3.2. This should support both the keyboard and mouse that plugs into the side of the keyboard.
-
-* `teensy_lc` for Teensy LC. There isn't enough space to enable both the serial mouse and the debug console.
+* `teensy_20` for ATMega32U4.
+* `teensy_32` for Teensy 3.2.
+* `teensy_lc` for Teensy LC.
 
 The 32-bit MCUs use `UART2` (`RX3` / `TX3`) for the keyboard.
+(At one time they used the default UART for serial mouse. This support is currently broken.)
 If you would rather use `UART0` (`RX1` / `TX1`), create a configuration that defines `SD_KEYBOARD` to `SD1`
 and change `KINETIS_SERIAL_USE_UART0` to `TRUE` (and `2` to `FALSE`) in `mcuconf.h`.

@@ -15,7 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-#define _______ KC_TRNS               // Transparent key 
 #define xxxxxxx KC_NO                 // Disable key
 #define FN_APP LT(1, KC_APP)          // Tap = App Menu | Hold = Function layer 1
 
