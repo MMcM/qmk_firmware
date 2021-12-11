@@ -79,4 +79,5 @@ make converter/uts SILENT=true &&
 make keebio/tukey:mmcm SILENT=true &&
 make navi10:mmcm SILENT=true &&
 make ymdk/yd60mq/16led:mmcm SILENT=true &&
+make handwired/swiftrax/the_galleon:mmcm SILENT=true &&
 true
