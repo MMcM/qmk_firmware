@@ -78,4 +78,5 @@ make gh60/revc:mmcm_bow SILENT=true &&
 make converter/uts SILENT=true &&
 make keebio/tukey:mmcm SILENT=true &&
 make navi10:mmcm SILENT=true &&
+make yd60mq:mmcm SILENT=true &&
 true
