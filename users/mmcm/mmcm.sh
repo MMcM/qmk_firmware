@@ -81,4 +81,5 @@ make keebio/tukey:mmcm SILENT=true &&
 make navi10:mmcm SILENT=true &&
 make yd60mq:mmcm SILENT=true &&
 make handwired/swiftrax/the_galleon:mmcm SILENT=true &&
+make converter/adds_ascii SILENT=true &&
 true
