@@ -83,4 +83,5 @@ make handwired/swiftrax/the_galleon:mmcm SILENT=true &&
 make converter/adds_ascii SILENT=true &&
 make converter/xerox_820_lpk SILENT=true &&
 make dz60:mmcm_l4 SILENT=true &&
+make xiudi/xd60/rev3:mmcm_l5 SILENT=true &&
 true
