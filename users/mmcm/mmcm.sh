@@ -82,4 +82,5 @@ make ymdk/yd60mq/16led:mmcm SILENT=true &&
 make handwired/swiftrax/the_galleon:mmcm SILENT=true &&
 make converter/adds_ascii SILENT=true &&
 make converter/xerox_820_lpk SILENT=true &&
+make dz60:mmcm_l4 SILENT=true &&
 true
