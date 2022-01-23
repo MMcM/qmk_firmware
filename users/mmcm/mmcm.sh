@@ -86,4 +86,5 @@ make dz60:mmcm_l4 SILENT=true &&
 make xiudi/xd60/rev3:mmcm_l5 SILENT=true &&
 make converter/sharp_x1 SILENT=true &&
 make clueboard/2x1800/2019:mmcm SILENT=true &&
+make converter/memorex_2051 SILENT=true &&
 true
