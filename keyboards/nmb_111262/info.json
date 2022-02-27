@@ -27,7 +27,7 @@
   "processor": "atmega32u4",
   "url": "https://deskthority.net/viewtopic.php?f=7&t=22922",
   "usb": {
-    "device_ver": "0x000A",
+    "device_ver": "0x0001",
     "pid": "0x0000",
     "vid": "0xFEED"
   },

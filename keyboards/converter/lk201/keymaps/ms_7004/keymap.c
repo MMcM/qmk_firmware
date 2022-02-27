@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *           +---+-----------------------------------+                                 +-------+-------+
  */
      
-  [0] = LAYOUT_MS_7004(
+  [0] = LAYOUT_ms_7004(
     KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, \
     KC_BSLASH, KC_SCOLON, RU_1, RU_2, RU_3, RU_4, RU_5, RU_6, RU_7, RU_8, RU_9, RU_0, RU_MINS, KC_PLUS, KC_ESC, KC_BSPACE, KC_FIND, KC_INSERT, KC_DELETE, KC_F21, KC_F22, KC_F23, KC_F24, \
     KC_TAB, RU_SHTI, RU_TSE, RU_U, RU_KA, RU_IE, RU_EN, RU_GHE, RU_SHA, RU_SHCH, RU_ZE, RU_HA, KC_COLON, KC_GRAVE, KC_ENTER, KC_SELECT, KC_PGUP, KC_PGDOWN, KC_KP_7, KC_KP_8, KC_KP_9, KC_KP_COMMA, \

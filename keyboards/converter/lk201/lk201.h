@@ -60,7 +60,7 @@
  *           |B1 |D4                                 |                                 |92     |95     |
  *           +---+-----------------------------------+                                 +-------+-------+
  */
-#define LAYOUT_MS_7004( \
+#define LAYOUT_ms_7004( \
     K56, K57, K58, K59, K5A, K64, K65, K66, K67, K68, K71, K72, K73, K74, K7C, K7D, K80, K81, K82, K83, \
     KFC, KBF, KC0, KC5, KCB, KD0, KD6, KDB, KE0, KE5, KEA, KEF, KF9, KF5, KC9, KBC, K8A, K8B, K8C, KA1, KA2, KA3, KA4, \
     KBE, KC1, KC6, KCC, KD1, KD7, KDC, KE1, KE6, KEB, KF0, KFA, KF6, KC4, KBD, K8D, K8E, K8F, K9D, K9E, K9F, KA0, \

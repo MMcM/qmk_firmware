@@ -1,5 +1,6 @@
 # MCU name
 MCU = STM32F303
+BOOTLOADER = stm32-dfu
 
 ## Features
 CONSOLE_ENABLE = yes

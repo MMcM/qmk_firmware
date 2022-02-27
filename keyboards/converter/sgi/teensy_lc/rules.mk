@@ -1,5 +1,6 @@
 # Teensy LC
 MCU = MKL26Z64
+BOOTLOADER = halfkay
 USE_CHIBIOS_CONTRIB = yes
 
 # Enter lower-power sleep mode when on the ChibiOS idle thread

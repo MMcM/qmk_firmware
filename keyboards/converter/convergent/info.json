@@ -25,7 +25,7 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT_K1": {
+    "LAYOUT_k1": {
       "layout": [
         { "label":"NEXT PAGE", "x":0, "y":0 },
         { "label":"SCROLL UP", "x":1, "y":0 },
@@ -123,7 +123,7 @@
         { "label":"0", "x":18, "y":4, "w":2 },
         { "label":".", "x":20, "y":4 },
         { "label":"CODE", "x":5.75, "y":6, "w":1.25 },
-        { "x":7, "y":6, "w":6}
+        { "x":7, "y":6, "w":6},
         { "label":"CODE", "x":13, "y":6, "w":1.25 }
       ]
     }

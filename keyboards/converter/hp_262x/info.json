@@ -23,7 +23,7 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT_STANDARD": {
+    "LAYOUT_standard": {
       "layout": [
         { "label":"up left", "x":0.5, "y":0, "w":1.5 },
         { "label":"down left", "x":1.5, "y":0, "w":1.5 },
