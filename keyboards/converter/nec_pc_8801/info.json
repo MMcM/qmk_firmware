@@ -115,7 +115,7 @@
         { "label":"⏎", "x":19.25, "y":5 }
       ]
     },
-    "LAYOUT_8801mkII": {
+    "LAYOUT_8801mkii": {
       "layout": [
         { "label":"STOP", "x":0, "y":0 },
         { "label":"COPY", "x":1, "y":0 },

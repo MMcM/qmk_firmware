@@ -25,7 +25,7 @@
  *                     +----+----+                           +-----------+
  */
 
-#define LAYOUT_OASYS( \
+#define LAYOUT_oasys( \
     K7C,     K7D, K5D, K5E, K5F, K60,     K61, K62, K63,     K64, K65,     K6B, K6C, K6D, K3D, K74, K75, K76, K77, \
                                                                            K6E, K4E, K70, K47, K78, K79, K45, K7A, \
     K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, K5B,       K71, K4B, K48, \
@@ -66,7 +66,7 @@
  *                       +----+----+                             +-----------+ +-------+---+---+
  */
 
-#define LAYOUT_FMT( \
+#define LAYOUT_fmt( \
     K7C, K7D, K5D, K5E, K5F, K60, K61, K62, K63, K64, K65, K66, K69, K5B,      K6B, K6C, K6D, K74, K75, K76, K77, \
                                                                                K6E, K4E, K70, K78, K79, K7A, K7B, \
     K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, K0E, K29, K71, K4B, K48, \
@@ -107,7 +107,7 @@
  *                       +----+----+                             +-----------+ +-------+---+---+
  */
 
-#define LAYOUT_FMT_JIS( \
+#define LAYOUT_fmt_jis( \
     K7C, K7D, K5D, K5E, K5F, K60, K61, K62, K63, K64, K65, K66, K69, K5B,      K6B, K6C, K6D, K74, K75, K76, K77, \
                                                                                K6E, K4E, K70, K78, K79, K7A, K7B, \
     K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, K0E, K0F, K71, K4B, K48, \

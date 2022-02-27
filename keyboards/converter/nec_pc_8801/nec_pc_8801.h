@@ -64,7 +64,7 @@
  * 
  */
 
-#define LAYOUT_8801mkII( \
+#define LAYOUT_8801mkii( \
     K90, KA4, K91, K92, K93, K94, K95, KB0, KB1,                               K81, KA1, KA2, K82, \
     K97, K61, K62, K63, K64, K65, K66, K67, K70, K71, K60, K57, K56, K54, K83, K80, KA3, KA5, KA6, \
     KA0, K41, K47, K25, K42, K44, K51, K45, K31, K37, K40, K20, K53, K17,      K07, K10, K11, K12, \

@@ -51,7 +51,7 @@
  * +---+---+---+-----------------------------------+---+---+---+
  */
 
-#define LAYOUT_DATAVUE( \
+#define LAYOUT_datavue( \
     K29, K45, K46, K0C, K47, K48, K49, K4A, \
     K3B, K3C, K3D, K3E, K3F, K40, K41, K42, K43, K44, K0D, K4B, K4C, K4D, K4E, \
     K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K4F, K50, K51, K0E, \

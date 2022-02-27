@@ -27,7 +27,7 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT_FMT": {
+    "LAYOUT_fmt": {
       "layout": [
         { "label":"BREAK", "x":0, "y":0 },
         { "label":"COPY", "x":1.25, "y":0 },
@@ -167,7 +167,7 @@
         { "label":"000", "x":21, "y":6.75 }
       ]
     },
-    "LAYOUT_FMT_JIS": {
+    "LAYOUT_fmt_jis": {
       "layout": [
         { "label":"BREAK", "x":0, "y":0 },
         { "label":"COPY", "x":1.25, "y":0 },

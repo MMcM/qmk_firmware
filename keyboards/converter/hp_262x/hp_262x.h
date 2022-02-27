@@ -22,7 +22,7 @@
  *           +---+-------------------------------+---+
  */
 
-#define LAYOUT_STANDARD( \
+#define LAYOUT_standard( \
     K00, K01, K02, K03, K04, K05, K06, K07, \
     K33, K30, K17, K16, K27, K26, K57, K56, K55, K52, K67, K66, K46, K43, K47, \
     K35, K34, K15, K14, K25, K24, K54, K75, K76, K77, K65, K64, K44, K45, K40, \
@@ -62,7 +62,7 @@
  *               +-------------------------------+     
  */
 
-#define LAYOUT_EXTENDED( \
+#define LAYOUT_extended( \
     K68, K69, K6A, K6B, K6C, K6D, K6E, K6F, K5E, K5F, K54, K57, \
     K60, K61, K62, K64, K65, K63, K66, K67, K58, K59, K5A, K5B, K5C, K5D, K56, K55, \
     K44, K18, K0F, K0E, K17, K16, K2F, K2E, K2D, K2A, K37, K36, K26, K23, K27, K46, K47, K50, K51, \

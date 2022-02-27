@@ -25,7 +25,7 @@
     "vid": "0xFEED"
   },
   "layouts": {
-    "LAYOUT_K1": {
+    "LAYOUT": {
       "layout": [
         { "label":"ESC", "x":0, "y":0 },
         { "label":"F1", "x":2, "y":0 },
