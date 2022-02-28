@@ -46,8 +46,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NUM_ROW_PINS 5
 #define NUM_COL_PINS 2
 
-static const uint8_t row_pins [NUM_ROW_PINS] = MATRIX_ROW_PINS ;
-static const uint8_t col_pins [NUM_ROW_PINS] = MATRIX_COL_PINS ;
+static const uint8_t row_pins [NUM_ROW_PINS] = IBM_5291_MATRIX_ROW_PINS ;
+static const uint8_t col_pins [NUM_ROW_PINS] = IBM_5291_MATRIX_COL_PINS ;
 
 #if ( DEBOUNCE > 0 )
 static uint16_t debouncing_time         ;
@@ -78,7 +78,7 @@ void init_led(void) {
 static
 inline
 void init_data(void) {
-    uint8_t pin = MATRIX_DATA_PIN ;
+    uint8_t pin = IBM_5291_MATRIX_DATA_PIN ;
     _SFR_IO8((pin >> 4) + 1) &= ~_BV(pin & 0xF); // IN
     _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // LO
 }
@@ -86,7 +86,7 @@ void init_data(void) {
 static
 inline
 void init_strobe(void) {
-    uint8_t pin = MATRIX_STROBE_PIN ;
+    uint8_t pin = IBM_5291_MATRIX_STROBE_PIN ;
     _SFR_IO8((pin >> 4) + 1) |= _BV(pin & 0xF);  // OUT
     _SFR_IO8((pin >> 4) + 2) |= _BV(pin & 0xF);  // HI
 }
@@ -142,8 +142,8 @@ void select_col(uint8_t current_col) {
 static
 inline
 uint8_t matrix_strobe(uint8_t col_index) {
-    uint8_t strobe_pin = MATRIX_STROBE_PIN ;
-    uint8_t data_pin   = MATRIX_DATA_PIN   ;
+    uint8_t strobe_pin = IBM_5291_MATRIX_STROBE_PIN ;
+    uint8_t data_pin   = IBM_5291_MATRIX_DATA_PIN   ;
     
     // set strobe pin low
     _SFR_IO8((strobe_pin >> 4) + 2) &=  ~_BV(strobe_pin & 0xF);

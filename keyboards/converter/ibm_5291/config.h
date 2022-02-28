@@ -25,13 +25,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER        QMK
 #define PRODUCT             5291 keyboard converter
 
-#define MATRIX_ROWS         5
+#define MATRIX_ROWS         24
 #define MATRIX_COLS         4
 
-#define MATRIX_ROW_PINS   {B2, B3, B4, B5, B6}
-#define MATRIX_COL_PINS   {B0, B1}
-#define MATRIX_DATA_PIN   D0
-#define MATRIX_STROBE_PIN D1
+#define IBM_5291_MATRIX_ROW_PINS   {B2, B3, B4, B5, B6}
+#define IBM_5291_MATRIX_COL_PINS   {B0, B1}
+#define IBM_5291_MATRIX_DATA_PIN   D0
+#define IBM_5291_MATRIX_STROBE_PIN D1
 #define LED_PIN           D6
 
 

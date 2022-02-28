@@ -89,4 +89,5 @@ make clueboard/2x1800/2019:mmcm SILENT=true &&
 make converter/memorex_2051 SILENT=true &&
 make keebio/bdn9/rev2:mmcm SILENT=true &&
 make converter/nec_pc_8801 SILENT=true &&
+make converter/ibm_5291 SILENT=true &&
 true
