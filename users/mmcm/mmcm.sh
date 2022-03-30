@@ -91,4 +91,5 @@ make keebio/bdn9/rev2:mmcm SILENT=true &&
 make converter/nec_pc_8801 SILENT=true &&
 make converter/ibm_5291 SILENT=true &&
 make clueboard/2x1800/2021:mmcm SILENT=true &&
+make hub20:mmcm SILENT=true &&
 true
