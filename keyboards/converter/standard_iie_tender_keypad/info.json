@@ -17,7 +17,7 @@
   "layouts": {
     "LAYOUT": {
       "c_macro": true,
-      "filename": "keyboards/converter/standard_IIe_tender_keypad/standard_IIe_tender_keypad.h",
+      "filename": "keyboards/converter/standard_iie_tender_keypad/standard_iie_tender_keypad.h",
       "layout": [
         { "label": "DEL", "matrix": [2, 6], "w": 1, "x": 0, "y": 0 },
         { "label": "*", "matrix": [1, 0], "w": 1, "x": 1, "y": 0 },

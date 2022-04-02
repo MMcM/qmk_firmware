@@ -7,7 +7,7 @@ Hardware Supported: KPD-010, Teensy LC
 
 Make example for this keyboard (after setting up your build environment):
 
-    make converter/standard_IIe_tender_keypad:default
+    make converter/standard_iie_tender_keypad:default
 
 ## Hardware
 
