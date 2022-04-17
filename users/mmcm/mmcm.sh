@@ -93,4 +93,5 @@ make converter/ibm_5291 SILENT=true &&
 make clueboard/2x1800/2021:mmcm SILENT=true &&
 make hub20:mmcm SILENT=true &&
 make converter/olivetti_m24 SILENT=true &&
+make converter/nec_pc_6601sr SILENT=true &&
 true
