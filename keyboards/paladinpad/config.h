@@ -8,7 +8,6 @@
 #define PRODUCT_ID      0x6060
 #define MANUFACTURER    inachie
 #define PRODUCT         paladinpad
-#define DESCRIPTION     PaladinPad ALPS Numpad
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -22,9 +21,6 @@
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 3
 #endif
-
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCING_DELAY 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE

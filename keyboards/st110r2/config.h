@@ -25,7 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    [null]
 #define PRODUCT         SaikouType NKBM-ST110 r2
-#define DESCRIPTION     SaikouType NKBM-ST110 r2
 
 /* key matrix size */
 #define MATRIX_ROWS 8
@@ -60,9 +59,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGBLIGHT_SAT_STEP 8
 // #define RGBLIGHT_VAL_STEP 8
 // #endif
-
-/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCING_DELAY 5
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST

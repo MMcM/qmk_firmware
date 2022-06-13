@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Apple Lisa keyboard converter
-#define DESCRIPTION       Apple Lisa keyboard converter
 
 #define MATRIX_ROWS       16
 #define MATRIX_COLS       8

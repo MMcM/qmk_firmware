@@ -3,7 +3,6 @@
 #include "config_common.h"
 
 #define PRODUCT           BX-220 keyboard converter
-#define DESCRIPTION       BX-220 keyboard converter
 
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 14

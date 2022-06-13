@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Micro Switch SN-series 5-key keypad converter
-#define DESCRIPTION       Micro Switch SN-series 5-key keypad converter
 
 #define MATRIX_ROWS 1
 #define MATRIX_COLS 5

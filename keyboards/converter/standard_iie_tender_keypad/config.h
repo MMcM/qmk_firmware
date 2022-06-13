@@ -5,4 +5,3 @@
 //#include "config_common.h"
 
 #define PRODUCT           Track House standard IIe tender keypad converter
-#define DESCRIPTION       Track House standard IIe tender keypad converter

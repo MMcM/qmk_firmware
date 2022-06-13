@@ -5,10 +5,8 @@
 
 #ifndef NMB_TVI_RAW
 #define PRODUCT           NMB Televideo keyboard converter
-#define DESCRIPTION       NMB Televideo keyboard converter
 #else
 #define PRODUCT           NMB Televideo (raw) keyboard converter
-#define DESCRIPTION       NMB Televideo (raw) keyboard converter
 #endif
 
 #ifdef NMB_TVI_RAW

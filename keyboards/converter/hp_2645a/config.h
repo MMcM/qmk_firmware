@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           HP 2645A keyboard converter
-#define DESCRIPTION       HP 2645A keyboard converter
 
 #define MATRIX_ROWS       14
 #define MATRIX_COLS       8

@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Fujitsu OASYS keyboard converter
-#define DESCRIPTION       Fujitsu OASYS keyboard converter
 
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16

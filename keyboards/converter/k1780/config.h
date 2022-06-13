@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           K1780 keyboard converter
-#define DESCRIPTION       K1780 keyboard converter
 
 #define MATRIX_ROWS       13
 #define MATRIX_COLS       8

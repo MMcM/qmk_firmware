@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Amtelco KB163 keyboard converter
-#define DESCRIPTION       Amtelco KB163 keyboard converter
                           
 #define MATRIX_ROWS       32
 #define MATRIX_COLS       32
