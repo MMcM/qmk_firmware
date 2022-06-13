@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Alphameric Type 140 keyboard converter
-#define DESCRIPTION       Alphameric Type 140 keyboard converter
                           
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16

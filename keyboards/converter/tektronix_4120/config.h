@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Tektronix 4120 keyboard converter
-#define DESCRIPTION       Tektronix 4120 keyboard converter
 
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16

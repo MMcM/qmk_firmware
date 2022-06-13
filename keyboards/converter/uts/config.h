@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Sperry-Univac UTS keyboard converter
-#define DESCRIPTION       Sperry-Univac UTS keyboard converter
 
 #define MATRIX_ROWS       9
 #define MATRIX_COLS       16

@@ -5,4 +5,3 @@
 //#include "config_common.h"
 
 #define PRODUCT         QMK for Omron turbo
-#define DESCRIPTION     QMK for laptop keyboard with Turbo button and Omron switches

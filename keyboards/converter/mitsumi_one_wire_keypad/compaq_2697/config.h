@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Compaq numeric keypad converter
-#define DESCRIPTION       Compaq numeric keypad converter
                           
 #define MATRIX_ROWS       16
 #define MATRIX_COLS       16

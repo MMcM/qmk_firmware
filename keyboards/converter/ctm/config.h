@@ -5,7 +5,6 @@
 //#include "config_common.h"
 
 #define PRODUCT           CTM keyboard converter
-#define DESCRIPTION       CTM keyboard converter
 
 #define MATRIX_ROWS       14
 #define MATRIX_COLS       8

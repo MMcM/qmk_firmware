@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           DG 6246A keyboard converter
-#define DESCRIPTION       DG 6246A keyboard converter
 
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16

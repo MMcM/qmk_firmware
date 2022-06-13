@@ -5,10 +5,8 @@
 
 #ifdef VT50H
 #define PRODUCT           VT50H keyboard converter
-#define DESCRIPTION       VT50H keyboard converter
 #else
 #define PRODUCT           VT50 keyboard converter
-#define DESCRIPTION       VT50 keyboard converter
 #endif
 
 #ifdef VT50H

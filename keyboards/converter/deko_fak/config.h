@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Deko Fast Action Keyboard converter
-#define DESCRIPTION       Deko Fast Action Keyboard converter
 
 #define MATRIX_ROWS       16
 #define MATRIX_COLS       16

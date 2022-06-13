@@ -5,7 +5,6 @@
 //#include "config_common.h"
 
 #define PRODUCT           MK06 keyboard converter
-#define DESCRIPTION       MK06 keyboard converter
 
 #define MATRIX_ROWS       16
 #define MATRIX_COLS       16

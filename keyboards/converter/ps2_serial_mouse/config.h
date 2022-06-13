@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           PS2 keyboard with serial mouse converter
-#define DESCRIPTION       PS2 keyboard with serial mouse keyboard converter
                           
 #define MATRIX_ROWS       24
 #define MATRIX_COLS       32

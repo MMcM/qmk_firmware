@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define PRODUCT MACRO Macro Pad
-#define DESCRIPTION USB converter to transform the C3 Maestro into the MACRO Macro Pad
 
 /* key matrix size */
 #define MATRIX_ROWS 11

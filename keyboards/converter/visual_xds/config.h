@@ -2,7 +2,6 @@
 #pragma once
 
 #define PRODUCT           Visual XDS keyboard converter
-#define DESCRIPTION       Visual XDS keyboard converter
 
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16

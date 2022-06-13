@@ -4,7 +4,6 @@
 #include "config_common.h"
                           
 #define PRODUCT           Alps KP-17P keypad converter
-#define DESCRIPTION       Alps KP-17P keypad converter
 
 #define MATRIX_ROWS       5
 #define MATRIX_COLS       4

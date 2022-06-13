@@ -4,7 +4,6 @@
 #include "config_common.h"
 
 #define PRODUCT           Apollo keyboard converter
-#define DESCRIPTION       Apollo keyboard converter
 
 #define MATRIX_ROWS       8
 #define MATRIX_COLS       16
