@@ -16,7 +16,6 @@
     "mousekey": false,
     "nkro": false,
     "rgblight": false,
-    "serial_mouse_microsoft": true,
     "sleep_led": false,
     "unicode": false
   },
