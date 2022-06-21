@@ -165,6 +165,7 @@ uint8_t matrix_scan(void) {
     }
 
     dprintf("%02X%c", code, sent ? '\n' : ' ');
+    matrix_scan_quantum();
     return 1;
 }
 

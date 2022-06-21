@@ -13,15 +13,9 @@
  */
 #ifdef PS2_USE_USART
 /* XCK for clock line */
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   5
+#define PS2_CLOCK_PIN   D5
 /* RXD for data line */
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    2
+#define PS2_DATA_PIN    D2
 
 /* synchronous, odd parity, 1-bit stop, 8-bit data, sample at falling edge */
 /* set DDR of CLOCK as input to be slave */
@@ -61,15 +55,8 @@
  */
 #ifdef PS2_USE_INT
 /* uses INT1 for clock line(ATMega32U4) */
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   1
-
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    0
+#define PS2_CLOCK_PIN   D1
+#define PS2_DATA_PIN    D0
 
 #define PS2_INT_INIT()  do {    \
     EICRA |= ((1<<ISC11) |      \
@@ -89,13 +76,6 @@
  * PS/2 Busywait configuration
  */
 #ifdef PS2_USE_BUSYWAIT
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   1
-
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    0
+#define PS2_CLOCK_PIN   D1
+#define PS2_DATA_PIN    D0
 #endif

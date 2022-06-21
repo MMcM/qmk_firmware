@@ -21,15 +21,8 @@
  */
 #ifdef PS2_USE_INT
 /* uses INT1 for clock line(ATMega32U4) */
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   1
-
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    0
+#define PS2_CLOCK_PIN   D1
+#define PS2_DATA_PIN    D0
 
 #define PS2_INT_INIT()  do {    \
     EICRA |= ((1<<ISC11) |      \
@@ -49,15 +42,8 @@
  * PS/2 Busywait configuration
  */
 #ifdef PS2_USE_BUSYWAIT
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   1
-
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    0
+#define PS2_CLOCK_PIN   D1
+#define PS2_DATA_PIN    D0
 #endif
 
 /*
@@ -67,8 +53,7 @@
 #define SERIAL_UART_INIT_CUSTOM \
     /* enable TX and RX with interrupt */ \
     UCSR1B = _BV(TXEN1) | _BV(RXEN1) | _BV(RXCIE1); \
-    /* 7-bit data, two stop bits (ignored on receive) */ \
-    UCSR1C = _BV(UCSZ11) | _BV(USBS1); \
-    /* Turn on DTR via PC6 */ \
-    DDRC |= (1 << 6); \
-    PORTC |= (1 << 6);
+    /* 8-bit data */ \
+    UCSR1C = _BV(UCSZ11) | _BV(UCSZ10); \
+    /* Turn on DTR via PC6 by setting T2IN low = space = asserted */ \
+    DDRC |= (1 << 6);
