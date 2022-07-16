@@ -98,4 +98,5 @@ make converter/sperry_univac_uds_2000 SILENT=true &&
 make converter/wey_mk06 SILENT=true &&
 make converter/visual_xds SILENT=true &&
 make converter/wyse_4p4c SILENT=true &&
+make converter/cpt_phoenix SILENT=true &&
 true
