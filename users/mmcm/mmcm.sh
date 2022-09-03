@@ -99,4 +99,5 @@ make converter/wey_mk06 SILENT=true &&
 make converter/visual_xds SILENT=true &&
 make converter/wyse_4p4c SILENT=true &&
 make converter/cpt_phoenix SILENT=true &&
+make converter/amiga SILENT=true &&
 true
