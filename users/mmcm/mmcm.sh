@@ -100,4 +100,5 @@ make converter/visual_xds SILENT=true &&
 make converter/wyse_4p4c SILENT=true &&
 make converter/cpt_phoenix SILENT=true &&
 make converter/amiga SILENT=true &&
+make lw67:mmcm SILENT=true &&
 true
