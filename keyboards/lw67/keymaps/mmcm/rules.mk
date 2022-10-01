@@ -1,0 +1,2 @@
+CONSOLE_ENABLE = yes
+COMMAND_ENABLE = yes
