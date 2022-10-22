@@ -102,4 +102,5 @@ make converter/cpt_phoenix SILENT=true &&
 make converter/amiga SILENT=true &&
 make lw67:mmcm SILENT=true &&
 make converter/datamedia_colorscan_10 SILENT=true &&
+make evyd13/eon95:mmcm SILENT=true &&
 true
