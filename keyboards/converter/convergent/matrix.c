@@ -65,7 +65,7 @@ void matrix_init(void) {
 
     // INIT- (pin 2) idle high
     wait_ms(10);
-#if 0
+#if defined(__AVR__)
     setPinOutput(D0);
 #else
     // With the default _pal_lld_setpadmode (300), the RESET line idles at about 2V.
