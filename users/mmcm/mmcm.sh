@@ -103,4 +103,5 @@ make converter/amiga SILENT=true &&
 make lw67:mmcm SILENT=true &&
 make converter/datamedia_colorscan_10 SILENT=true &&
 make evyd13/eon95:mmcm SILENT=true &&
+make kikoslab/kl90:mmcm SILENT=true &&
 true
