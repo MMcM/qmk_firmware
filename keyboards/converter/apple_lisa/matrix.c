@@ -119,22 +119,9 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
-void matrix_init(void) {
-    for (uint8_t i=0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
-
-    matrix_init_quantum();
-}
-
-uint8_t matrix_scan(void) {
-    uint8_t code = poll();
-    if (code == 0) return 0;
-
-    dprintf("%02X\n", code);
-
-    register_key(code);
-
-    matrix_scan_quantum();
-    return 1;
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
 }
 
 void matrix_print(void) {
@@ -146,7 +133,20 @@ void matrix_print(void) {
     }
 }
 
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
+void matrix_init(void) {
+    for (uint8_t i=0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
+
+    matrix_init_kb();
+}
+
+uint8_t matrix_scan(void) {
+    uint8_t code = poll();
+    if (code == 0) return 0;
+
+    dprintf("%02X\n", code);
+
+    register_key(code);
+
+    matrix_scan_kb();
+    return 1;
 }

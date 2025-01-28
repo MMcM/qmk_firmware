@@ -42,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [FN2] = LAYOUT(
-        DEBUG,                                                                                     QK_BOOT,
+        QK_DEBUG_TOGGLE,                                                                           QK_BOOT,
                  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
         KC_F11,  KC_F12,  KC_UP,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LBRC, KC_RBRC, KC_TRNS,
         KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        RGB_TOG, RGB_SAI,                   RGB_HUI, RGB_VAI,                            KC_TRNS, RGB_MOD
+        UG_TOGG, UG_SATU,                   UG_HUEU, UG_VALU,                            KC_TRNS, UG_NEXT
     )
 
 };
@@ -54,9 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-            tap_code(KC_PGUP);
+            tap_code(KC_PAGE_UP);
         } else {
-            tap_code(KC_PGDOWN);
+            tap_code(KC_PAGE_DOWN);
         }
     }
     else if (index == 1) {

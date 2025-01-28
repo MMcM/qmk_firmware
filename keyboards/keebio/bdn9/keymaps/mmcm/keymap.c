@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT(
         QK_BOOT, RGB_TOG, RGB_MOD,
         _______, _______, _______,
-        DEBUG,   _______, _______
+        QK_DEBUG_TOGGLE,   _______, _______
     ),
 };
 

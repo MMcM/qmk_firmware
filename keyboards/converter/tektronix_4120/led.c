@@ -4,8 +4,7 @@
 #include "led.h"
 #include "stdint.h"
 
-#include <avr/io.h>
-#include "protocol/serial.h"
+#include "uart.h"
 
 #include "tek_led.h"
 
@@ -19,7 +18,7 @@ static inline bool popcount_greater_than_one(uint32_t n) {
 
 static void led_send_cmd(uint8_t cmd) {
     dprintf("X: %02X\n", cmd);
-    serial_send(cmd);
+    uart_write(cmd);
 }
 
 void led_reset(void) {
@@ -46,25 +45,25 @@ void led_set_extra(uint32_t extra) {
     led_set(host_keyboard_leds());
 }
 
-void led_set(uint8_t usb_led) {
+void led_update_ports(led_t led_state) {
     if (led_init_pending) {
         return;
     }
 
     uint32_t leds = extra_leds;
-    if ((usb_led & (1 << USB_LED_NUM_LOCK)) != 0) {
+    if (led_state.num_lock) {
         leds |= ((uint32_t)1 << TEK_LED_DIALOG);
     }
-    if ((usb_led & (1 << USB_LED_CAPS_LOCK)) != 0) {
+    if (led_state.caps_lock) {
         leds |= ((uint32_t)1 << TEK_LED_CAPS_LOCK);
     }
-    if ((usb_led & (1 << USB_LED_SCROLL_LOCK)) != 0) {
+    if (led_state.scroll_lock) {
         leds |= ((uint32_t)1 << TEK_LED_LOCAL);
     }
-    if ((usb_led & (1 << USB_LED_COMPOSE)) != 0) {
+    if (led_state.compose) {
         leds |= ((uint32_t)1 << TEK_LED_SET_UP);
     }
-    if ((usb_led & (1 << USB_LED_KANA)) != 0) {
+    if (led_state.kana) {
         leds |= ((uint32_t)1 << TEK_LED_PAGE_FULL);
     }
     if (leds == current_leds) {

@@ -4,8 +4,7 @@
 #include "print.h"
 #include "quantum.h"
 
-#include <avr/io.h>
-#include "protocol/serial.h"
+#include "uart.h"
 
 #include "tek_led.h"
 
@@ -38,26 +37,42 @@ void encoder_update_kb(int8_t index, bool clockwise) {
     encoder_update_user(index, clockwise);
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 // RESET- idle high
 #define RESET_PIN D1
 
 static void reset(void) {
     led_reset();
 
-    setPinOutput(RESET_PIN);
-    writePinLow(RESET_PIN);
+    gpio_set_pin_output(RESET_PIN);
+    gpio_write_pin_low(RESET_PIN);
     wait_us(5);
-    writePinHigh(RESET_PIN);
+    gpio_write_pin_high(RESET_PIN);
 }
 
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
   
-    serial_init();
+    /* open collector */
+    gpio_set_pin_input_high(D2);
+    uart_init(1200);
 
     reset();
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 #ifndef ENCODER_RESOLUTION
@@ -85,12 +100,10 @@ uint8_t matrix_scan(void) {
     }
 
     if (!encoder_updated) {
-        int16_t data2 = serial_recv2();
-        if (data2 < 0) {
-            return 0;
+        if (!uart_available()) {
+          return 0;
         }
-
-        uint8_t code = data2 & 0xFF;
+        uint8_t code = uart_read();
         dprintf("R: %02X\n", code);
 
         static uint8_t pending_fx = 0;
@@ -123,20 +136,6 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

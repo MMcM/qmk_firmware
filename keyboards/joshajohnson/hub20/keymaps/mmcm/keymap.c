@@ -19,7 +19,7 @@
 // #define LED_MERGE_NUMPAD_RIGHT_HANDED_ENTER TRUE
 // #define LED_MERGE_NUMPAD_RIGHT_HANDED_ZERO TRUE
 
-#define MO_NLCK LT(1, KC_NLCK)  // Numlock on tap, layer change on hold
+#define MO_NLCK LT(1, KC_NUM)  // Numlock on tap, layer change on hold
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
     [1] = LAYOUT_right_handed(
                  QK_BOOT,  _______,
-       _______, RGB_RMOD,  RGB_MOD,    RGB_TOG,
-       _______,  RGB_VAD,  RGB_VAI,
-       _______,  RGB_HUD,  RGB_HUI,    _______,
-       _______,  RGB_SAD,  RGB_SAI,
+       _______,  RM_PREV,  RM_NEXT,    RM_TOGG,
+       _______,  RM_VALD,  RM_VALU,
+       _______,  RM_HUED,  RM_HUEU,    _______,
+       _______,  RM_SATD,  RM_SATU,
            _______,        _______,    _______
 )
 };

@@ -2,7 +2,7 @@
   "manufacturer": "Omron",
   "keyboard_name": "NMB 111262",
   "maintainer": "qmk",
-  "bootloader": "unknown",
+  "bootloader": "halfkay",
   "debounce": 5,
   "diode_direction": "COL2ROW",
   "matrix_pins": {
@@ -12,14 +12,12 @@
   "processor": "MKL26Z64",
   "url": "https://deskthority.net/viewtopic.php?f=7&t=22922",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0x0000",
     "vid": "0xFEED"
   },
   "layouts": {
     "LAYOUT": {
-      "c_macro": true,
-      "filename": "keyboards/omron_turbo/omron_turbo.h",
       "layout": [
         { "label": "Esc", "matrix": [2, 1], "w": 1, "x": 0, "y": 0 },
         { "label": "F1", "matrix": [9, 3], "w": 1, "x": 1, "y": 0 },
@@ -97,7 +95,6 @@
         { "label": "End", "matrix": [1, 1], "w": 1, "x": 15, "y": 4 },
         { "label": "Alt", "matrix": [9, 0], "w": 1.5, "x": 0, "y": 5 },
         { "label": "Caps Lock", "matrix": [9, 2], "w": 1.5, "x": 1.5, "y": 5 },
-        { "label": "Turbo", "w": 1, "x": 3, "y": 5 },
         { "label": "K_20_3", "matrix": [9, 1], "w": 7, "x": 4, "y": 5 },
         { "label": "Ins", "matrix": [11, 2], "w": 1, "x": 11, "y": 5 },
         { "label": "Del", "matrix": [11, 3], "w": 1, "x": 12, "y": 5 },

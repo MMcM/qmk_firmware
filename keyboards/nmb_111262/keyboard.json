@@ -22,19 +22,18 @@
   },
   "matrix_pins": {
     "cols": ["B5", "B6", "F7", "F6", "F5", "F4", "F1", "F0"],
-    "rows": ["D2", "D1", "D0", "B7", "B3", "B2", "B1", "B0"]
+    "rows": ["D2", "D1", "D0", "B7", "B3", "B2", "B1", "B0"],
+    "ghost": true  
   },
   "processor": "atmega32u4",
   "url": "https://deskthority.net/viewtopic.php?f=7&t=22922",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0x0000",
     "vid": "0xFEED"
   },
   "layouts": {
     "LAYOUT": {
-      "c_macro": true,
-      "filename": "keyboards/nmb_111262/nmb_111262.h",
       "layout": [
         { "label": "BEGIN OF TEXT", "matrix": [4, 0], "w": 1, "x": 0.5, "y": 0 },
         { "label": "END OF TEXT", "matrix": [4, 1], "w": 1, "x": 1.5, "y": 0 },

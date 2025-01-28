@@ -1,0 +1,8 @@
+Notes on getting mmcm (84f2421155f6a087adc0aaca62294d91e0939330)
+rebased to master (04c2dbd3dfa23bf6fdffa35ae53cf66aa3f33fba).
+
+skip 5a6f36f85c... Serial refactor #11521 broke slow baud rates.
+skip 1efe8ff570... converter/hp_46010a (adjust for Beetle)
+skip 25446a7b1a... 1upkeyboards/sweet16:mmcm (+ v1/proton_c)
+skip ee391ce8ee... converter/sun_usb/type3:mmcm Adjust serial code to be able to support this using a Teensy 3.2
+skip 552c2c4d31... Revert "Remove tmk_core 'serial' code (#17866)"
