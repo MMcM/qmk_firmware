@@ -21,7 +21,7 @@
   },
   "url": "http://deskthority.net/wiki/Wyse_keyboard_protocols",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0x0085",
     "vid": "0xDEC0"
   },
@@ -121,7 +121,6 @@
         { "label":",", "x":9.5, "y":5 },
         { "label":".", "x":10.5, "y":5 },
         { "label":"/", "x":11.5, "y":5 },
-        { "label":"Shift", "x":12.5, "y":5, "w":2 },
         { "label":"Left", "x":17, "y":5 },
         { "label":"Down", "x":18, "y":5 },
         { "label":"Right", "x":19, "y":5 },

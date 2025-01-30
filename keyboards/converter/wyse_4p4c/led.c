@@ -4,14 +4,14 @@
 
 extern uint8_t led_count;
 
-void led_set(uint8_t usb_led) {
+void led_update_ports(led_t led_state) {
     uint8_t led = 0;
   
-    if (usb_led & (1<<USB_LED_SCROLL_LOCK))
+    if (led_state.scroll_lock)
         led |= 1;
-    if (usb_led & (1<<USB_LED_NUM_LOCK))
+    if (led_state.num_lock)
         led |= 2;
-    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+    if (led_state.caps_lock)
         led |= 4;
   
     led_count = led ^ 7;
