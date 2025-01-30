@@ -99,6 +99,20 @@ ISR(INT3_vect) {
     }
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 012345678ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
   
@@ -110,7 +124,7 @@ void matrix_init(void) {
     EIMSK |= (1 << INT0) | (1 << INT1) | (1 << INT2) | (1 << INT3);
     EICRA |= (1 << ISC01) | (1 << ISC11) | (1 << ISC11) | (1 << ISC11);
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
@@ -177,20 +191,6 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 012345678ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

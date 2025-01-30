@@ -22,7 +22,7 @@
   "processor": "atmega32u4",
   "url": "",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0x6601",
     "vid": "0xFEED"
   },
@@ -95,7 +95,6 @@
         { "label":", < ね 、", "x":9.25, "y":6 },
         { "label":". > る 。", "x":10.25, "y":6 },
         { "label":"/ ? め ・", "x":11.25, "y":6 },
-        { "label":"SHIFT", "x":12.25, "y":6, "w":1.25 },
         { "label":"↑", "x":13.5, "y":6 },
         { "label":"かな", "x":14.5, "y":6 },
         { "label":"CAPS", "x":1, "y":7 },

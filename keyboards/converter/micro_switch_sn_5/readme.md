@@ -4,7 +4,7 @@ A subassembly for some kind of control equipment. Part number appears to be C597
 
 Keyboard Maintainer: [MMcM](https://github.com/MMcM)  
 Hardware Supported: A59731097-B, DFRobot Beetle  
-Hardware Availability: surplue from eBay
+Hardware Availability: surplus from eBay
 
 Make example for this keyboard (after setting up your build environment):
 

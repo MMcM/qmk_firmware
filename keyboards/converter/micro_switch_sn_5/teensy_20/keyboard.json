@@ -1,0 +1,13 @@
+{
+  "processor": "atmega32u4",
+  "bootloader": "halfkay",
+  "features": {
+    "console": true,
+    "extra_keys": true
+  },
+  "matrix_pins": {
+    "direct": [
+      ["B6", "B5", "F7", "F6", "F5"]
+    ]
+  }
+}

@@ -5,18 +5,18 @@
   "debounce": 0,
   "url": "https://deskthority.net/viewtopic.php?p=477203#p477203",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0xC597",
     "vid": "0xFEED"
   },
   "layouts": {
     "LAYOUT": {
       "layout": [
-        {"label": "A/C", "x": 0, "y": 0},
-        {"label": "PB ↑", "x": 0, "y": 1},
-        {"label": "S/F", "x": 0, "y": 2},
-        {"label": "PB ↓", "x": 0, "y": 3},
-        {"label": "B/D", "x": 0, "y": 4},
+        {"label": "A/C", "matrix":[0, 0], "x": 0, "y": 0},
+        {"label": "PB ↑", "matrix":[0, 1], "x": 0, "y": 1},
+        {"label": "S/F", "matrix":[0, 2], "x": 0, "y": 2},
+        {"label": "PB ↓", "matrix":[0, 3], "x": 0, "y": 3},
+        {"label": "B/D", "matrix":[0, 4], "x": 0, "y": 4},
       ]
     }
   }

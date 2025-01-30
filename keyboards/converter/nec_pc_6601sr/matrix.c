@@ -479,6 +479,20 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     DATA_PORT |= DATA_MASK | SENSE_MASK | IR_MASK; // Enable pullups.
 
@@ -499,7 +513,7 @@ void matrix_init(void) {
     state = INIT;
     init_time = timer_read();
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 static inline void key_state(uint8_t key, bool key_state) {
@@ -622,20 +636,6 @@ uint8_t matrix_scan(void) {
         EIMSK &= ~(_BV(INT0) | _BV(INT2)); // Disable interrupts until settled.
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

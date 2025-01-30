@@ -8,9 +8,10 @@
     "rows": ["A2", "D7", "D3", "C3", "C4"]
   },
   "processor": "MKL26Z64",
+  "bootloader": "halfkay",
   "url": "https://deskthority.net/viewtopic.php?f=7&t=24321",
   "usb": {
-    "device_ver": "0x0001",
+    "device_version": "0.0.1",
     "pid": "0xD010",
     "vid": "0xFEED"
   },

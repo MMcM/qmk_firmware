@@ -1,0 +1,18 @@
+{
+  "keyboard_name": "Micro Switch SN-series 5(3)-key keypad converter",
+  "processor": "attiny85",
+  "bootloader": "custom",
+  "build": {
+    "lto": true
+  },
+  "features": {
+    "grave_esc": false,
+    "magic": false,
+    "space_cadet": false
+  },
+  "matrix_pins": {
+    "direct": [
+      ["B0", "B2", "B5"]
+    ]
+  }
+}
