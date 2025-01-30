@@ -8,8 +8,8 @@
 static uint16_t last_time;
 
 void matrix_init_custom(void) {
-    setPinOutput(CLOCK_PIN);
-    setPinInputHigh(DATA_PIN);
+    gpio_set_pin_output(CLOCK_PIN);
+    gpio_set_pin_input_high(DATA_PIN);
 
     last_time = timer_read();
 }
@@ -17,12 +17,12 @@ void matrix_init_custom(void) {
 static inline uint8_t read_bits(uint8_t nbits) {
     uint8_t bits = 0;
     for (uint8_t i = 0; i < nbits; i++) {
-        writePinHigh(CLOCK_PIN);
+        gpio_write_pin_high(CLOCK_PIN);
         wait_us(1);
         uint8_t val = !readPin(DATA_PIN);
         bits |= (val << i);
         wait_us(1);
-        writePinLow(CLOCK_PIN);
+        gpio_write_pin_low(CLOCK_PIN);
         wait_us(1);
     }
     return bits;

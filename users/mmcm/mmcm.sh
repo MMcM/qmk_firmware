@@ -37,6 +37,7 @@ make omron_turbo SILENT=true &&
 
 make converter/apple_lisa SILENT=true &&
 make converter/tektronix_4120 SILENT=true &&
+make converter/wyse_4p4c SILENT=true &&
 
 exit
 
@@ -99,7 +100,6 @@ make converter/visual_xds SILENT=true &&
 make converter/vt100 SILENT=true &&
 make converter/vt50 SILENT=true &&
 make converter/wey_mk06 SILENT=true &&
-make converter/wyse_4p4c SILENT=true &&
 make converter/xerox_820_lpk SILENT=true &&
 make converter/z29 SILENT=true &&
 true
