@@ -1,0 +1,131 @@
+{
+  "manufacturer": "QMK",
+  "keyboard_name": "Tektronix 405x Keyboard Converter",
+  "maintainer": "MMcM",
+  "bootloader": "halfkay",
+  "debounce": 5,
+  "features": {
+    "bootmagic": false,
+    "command": false,
+    "console": true,
+    "extrakey": true,
+    "mousekey": true,
+    "sleep_led": false
+  },
+  "processor": "atmega32u4",
+  "usb": {
+    "device_version": "0.0.1",
+    "pid": "0x4051",
+    "vid": "0xFEED"
+  },
+  "layouts": {
+    "LAYOUT": {
+      "layout": [
+        { "label":"USER 1", "matrix":[6, 0], "x":0.5, "y":0 }
+        { "label":"USER 2", "matrix":[6, 1], "x":1.5, "y":0 }
+        { "label":"USER 3", "matrix":[6, 2], "x":2.5, "y":0 }
+        { "label":"USER 4", "matrix":[6, 3], "x":3.5, "y":0 }
+        { "label":"USER 5", "matrix":[6, 4], "x":4.5, "y":0 }
+        { "label":"EXPAND", "matrix":[7, 0], "x":7, "y":0 }
+        { "label":"BACK SPACE", "matrix":[7, 1], "x":8, "y":0 }
+        { "label":"SPACE", "matrix":[7, 2], "x":9, "y":0 }
+        { "label":"CLEAR", "matrix":[7, 3], "x":10, "y":0 }
+        { "label":"RECALL", "matrix":[7, 4], "x":11, "y":0 }
+        { "label":"AUTO NUMBER", "matrix":[7, 5], "x":12.5, "y":0 }
+        { "label":"STOP PROGRAM", "matrix":[7, 6], "x":14, "y":0 }
+        { "label":"LOAD TAPE", "matrix":[7, 7], "x":19, "y":0 }
+        { "label":"REWIND", "matrix":[6, 12], "x":21, "y":0 }
+
+        { "label":"USER 6", "matrix":[6, 5], "x":0.5, "y":1 }
+        { "label":"USER 7", "matrix":[6, 6], "x":1.5, "y":1 }
+        { "label":"USER 8", "matrix":[6, 7], "x":2.5, "y":1 }
+        { "label":"USER 9", "matrix":[6, 8], "x":3.5, "y":1 }
+        { "label":"USER 10", "matrix":[6, 9], "x":4.5, "y":1 }
+        { "label":"MAKE COPY", "matrix":[6, 13], "x":21, "y":1 }
+
+        { "label":"HOME PAGE", "matrix":[6, 10], "x":0, "y":2 }
+        { "label":"[", "matrix":[5, 11], "x":1, "y":2 }
+        { "label":"1", "matrix":[3, 1], "x":2, "y":2 }
+        { "label":"2", "matrix":[3, 2], "x":3, "y":2 }
+        { "label":"3", "matrix":[3, 3], "x":4, "y":2 }
+        { "label":"4", "matrix":[3, 4], "x":5, "y":2 }
+        { "label":"5", "matrix":[3, 5], "x":6, "y":2 }
+        { "label":"6", "matrix":[3, 6], "x":7, "y":2 }
+        { "label":"7", "matrix":[3, 7], "x":8, "y":2 }
+        { "label":"8", "matrix":[3, 8], "x":9, "y":2 }
+        { "label":"9", "matrix":[3, 9], "x":10, "y":2 }
+        { "label":"0", "matrix":[3, 0], "x":11, "y":2 }
+        { "label":":", "matrix":[3, 10], "x":12, "y":2 }
+        { "label":"-", "matrix":[3, 13], "x":13, "y":2 }
+        { "label":"]", "matrix":[5, 13], "x":14, "y":2 }
+        { "label":"BACK SPACE", "matrix":[0, 8], "x":15, "y":2 }
+        { "label":"(", "matrix":[7, 13], "x":17, "y":2 }
+        { "label":"ENTER EXP", "matrix":[7, 15], "x":18, "y":2 }
+        { "label":")", "matrix":[7, 14], "x":19, "y":2 }
+        { "label":"^", "matrix":[7, 12], "x":21, "y":2 }
+
+        { "label":"ESC", "matrix":[1, 11], "x":0.5, "y":3 }
+        { "label":"^", "matrix":[5, 14], "x":1.5, "y":3 }
+        { "label":"Q", "matrix":[5, 1], "x":2.5, "y":3 }
+        { "label":"W", "matrix":[5, 7], "x":3.5, "y":3 }
+        { "label":"E", "matrix":[4, 5], "x":4.5, "y":3 }
+        { "label":"R", "matrix":[5, 2], "x":5.5, "y":3 }
+        { "label":"T", "matrix":[5, 4], "x":6.5, "y":3 }
+        { "label":"Y", "matrix":[5, 9], "x":7.5, "y":3 }
+        { "label":"U", "matrix":[5, 5], "x":8.5, "y":3 }
+        { "label":"I", "matrix":[4, 9], "x":9.5, "y":3 }
+        { "label":"O", "matrix":[4, 15], "x":10.5, "y":3 }
+        { "label":"P", "matrix":[5, 0], "x":11.5, "y":3 }
+        { "label":"@", "matrix":[4, 0], "x":12.5, "y":3 }
+        { "label":"LF", "matrix":[0, 10], "x":13.5, "y":3 }
+        { "label":"RETURN", "matrix":[0, 13], "x":14.5, "y":3, "w":1.25 }
+        { "label":"7", "matrix":[2, 7], "x":17, "y":3 }
+        { "label":"8", "matrix":[2, 8], "x":18, "y":3 }
+        { "label":"9", "matrix":[2, 9], "x":19, "y":3 }
+        { "label":"/", "matrix":[2, 15], "x":21, "y":3 }
+
+        { "label":"TAB", "matrix":[0, 9], "x":0.75, "y":4 }
+        { "label":"CTRL", "matrix":[9, 0], "x":1.75, "y":4 }
+        { "label":"A", "matrix":[4, 1], "x":2.75, "y":4 }
+        { "label":"S", "matrix":[5, 3], "x":3.75, "y":4 }
+        { "label":"D", "matrix":[4, 4], "x":4.75, "y":4 }
+        { "label":"F", "matrix":[4, 6], "x":5.75, "y":4 }
+        { "label":"G", "matrix":[4, 7], "x":6.75, "y":4 }
+        { "label":"H", "matrix":[4, 8], "x":7.75, "y":4 }
+        { "label":"J", "matrix":[4, 10], "x":8.75, "y":4 }
+        { "label":"K", "matrix":[4, 11], "x":9.75, "y":4 }
+        { "label":"L", "matrix":[4, 12], "x":10.75, "y":4 }
+        { "label":";", "matrix":[3, 11], "x":11.75, "y":4 }
+        { "label":"\\", "matrix":[5, 12], "x":12.75, "y":4 }
+        { "label":"RUB OUT", "matrix":[5, 15], "x":13.75, "y":4 }
+        { "label":"4", "matrix":[2, 4], "x":17, "y":4 }
+        { "label":"5", "matrix":[2, 5], "x":18, "y":4 }
+        { "label":"6", "matrix":[2, 6], "x":19, "y":4 }
+        { "label":"*", "matrix":[2, 10], "x":21, "y":4 }
+
+        { "label":"TTY LOCK", "matrix":[10, 0], "x":0.75, "y":5 }
+        { "label":"SHIFT", "matrix":[8, 0], "x":1.75, "y":5, "w":1.5 }
+        { "label":"Z", "matrix":[5, 10], "x":3.25, "y":5 }
+        { "label":"X", "matrix":[5, 8], "x":4.25, "y":5 }
+        { "label":"C", "matrix":[4, 3], "x":5.25, "y":5 }
+        { "label":"V", "matrix":[5, 6], "x":6.25, "y":5 }
+        { "label":"B", "matrix":[4, 2], "x":7.25, "y":5 }
+        { "label":"N", "matrix":[4, 14], "x":8.25, "y":5 }
+        { "label":"M", "matrix":[4, 13], "x":9.25, "y":5 }
+        { "label":",", "matrix":[3, 12], "x":10.25, "y":5 }
+        { "label":".", "matrix":[3, 14], "x":11.25, "y":5 }
+        { "label":"/", "matrix":[3, 15], "x":12.25, "y":5 }
+        { "label":"BREAK", "matrix":[6, 11], "x":14.75, "y":5 }
+        { "label":"1", "matrix":[2, 1], "x":17, "y":5 }
+        { "label":"2", "matrix":[2, 2], "x":18, "y":5 }
+        { "label":"3", "matrix":[2, 3], "x":19, "y":5 }
+        { "label":"-", "matrix":[2, 13], "x":21, "y":5 }
+
+        { "matrix":[1, 0], "x":4.25, "y":6, "w":8 }
+        { "label":"0", "matrix":[2, 0], "x":17, "y":6 }
+        { "label":".", "matrix":[2, 14], "x":19, "y":6 }
+        { "label":"+", "matrix":[2, 11], "x":21, "y":6 }
+      ]
+    }
+  }
+}
