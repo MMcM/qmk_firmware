@@ -40,6 +40,7 @@ make converter/micro_switch_sn_5 SILENT=true &&
 make converter/nec_apc_h25 SILENT=true &&
 make converter/nec_pc_6601sr SILENT=true &&
 make converter/nec_pc_8801 SILENT=true &&
+make converter/sony_hit_bit SILENT=true &&
 make converter/standard_iie_tender_keypad SILENT=true &&
 make converter/tektronix_4051 SILENT=true &&
 make converter/tektronix_4120 SILENT=true &&
