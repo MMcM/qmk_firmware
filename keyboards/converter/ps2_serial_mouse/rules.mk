@@ -1,22 +1,12 @@
-# Teensy
-MCU = atmega32u4
-BOOTLOADER = halfkay
-
-# Interrupt driven control endpoint task(+60)
-OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
-
-WAIT_FOR_USB = yes
 CUSTOM_MATRIX = yes
 
-PS2_USE_INT = yes
-HARDWARE_SERIAL = yes
+PS2_DRIVER = interrupt
+UART_DRIVER_REQUIRED = yes
 
-SRC = matrix.c led.c
+SRC = matrix.c led.c serial_mouse.c
 
-SRC += protocol/serial_uart.c
-
-SERIAL_MOUSE_MICROSOFT_ENABLE ?= no
-SERIAL_MOUSE_MOUSESYSTEMS_ENABLE ?= yes
+SERIAL_MOUSE_MICROSOFT_ENABLE ?= yes
+SERIAL_MOUSE_MOUSESYSTEMS_ENABLE ?= no
 
 ifeq ($(strip $(SERIAL_MOUSE_MICROSOFT_ENABLE)), yes)
     SRC += serial_mouse_microsoft.c

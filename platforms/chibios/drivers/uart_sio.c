@@ -142,3 +142,7 @@ void uart_receive(uint8_t *data, uint16_t length) {
 bool uart_available() {
     return !sioIsRXEmptyX(&UART_DRIVER);
 }
+
+bool uart_write_available() {
+    return !sioIsTXFullX(&UART_DRIVER);
+}

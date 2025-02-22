@@ -59,4 +59,11 @@ void uart_receive(uint8_t *data, uint16_t length);
  */
 bool uart_available(void);
 
+/**
+ * \brief Return whether the transmit buffer has room. Call this function to determine if `uart_write()` will send data immediately.
+ *
+ * \return true if there is room available for write.
+ */
+bool uart_write_available(void);
+
 /** \} */

@@ -5,7 +5,7 @@
 #include "quantum.h"
 
 #include <avr/io.h>
-#include "protocol/serial.h"
+#include "uart.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -27,6 +27,20 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 // RESET - idle high
 #define RESET_PIN D1
 
@@ -40,20 +54,21 @@ static void reset(void) {
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
 
-    serial_init();
+    uart_init(1200);
+    /* even parity */
+    UCSR1C |= _BV(UPM11);
 
     reset();
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
-    int16_t data = serial_recv2();
-    if (data < 0) {
+    if (!uart_available()) {
         return 0;
     }
 
-    uint8_t code = data & 0xFF;
+    uint8_t code = uart_read();
     dprintf("R: %02X\n", code);
 
     static bool mode_next = false;
@@ -65,8 +80,8 @@ uint8_t matrix_scan(void) {
         } else {
             // Switch to mode 1.
             dprintln("S: FF 01");
-            serial_send(0xFF);
-            serial_send(0x01);
+            uart_write(0xFF);
+            uart_write(0x01);
         }
     } else if (code == 0xFF) {
         mode_next = true;
@@ -86,20 +101,6 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

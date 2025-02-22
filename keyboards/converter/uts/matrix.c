@@ -5,8 +5,7 @@
 #include "quantum.h"
 
 #include <avr/io.h>
-#include "protocol/serial.h"
-#define SERIAL_UART_TXD_READY (UCSR1A & _BV(UDRE1))
+#include "uart.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -28,12 +27,28 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
 
-    serial_init();
+    uart_init(9600);
+    /* odd parity, 2 stop bits */
+    UCSR1C |= _BV(UPM11) | _BV(UPM10) | _BV(USBS1);
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
@@ -46,13 +61,12 @@ uint8_t matrix_scan(void) {
         state = IDLE;
     }
 
-    if (SERIAL_UART_TXD_READY) {
-        serial_send(0);
+    if (uart_write_available()) {
+        uart_write(0);
     }
 
-    int16_t data2 = serial_recv2();
-    if (data2 >= 0) {
-        uint8_t data = data2 & 0xFF;
+    if (uart_available()) {
+        uint8_t data = uart_read();
         if (data & 0x80) {
             prefix = data;
             matrix[8] = data & 5; // Update shift state (FCTN and SHIFT -- the 2 bit might be CAPS, but LOCK is SHIFT LOCK).
@@ -77,20 +91,6 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

@@ -146,3 +146,7 @@ void uart_receive(uint8_t *data, uint16_t length) {
 bool uart_available(void) {
     return !sdGetWouldBlock(&UART_DRIVER);
 }
+
+bool uart_write_available(void) {
+    return !sdPutWouldBlock(&UART_DRIVER);
+}

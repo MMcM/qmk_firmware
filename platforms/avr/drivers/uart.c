@@ -32,6 +32,7 @@
 #if defined(__AVR_AT90USB162__) || defined(__AVR_ATmega16U2__) || defined(__AVR_ATmega32U2__) || defined(__AVR_ATmega16U4__) || defined(__AVR_ATmega32U4__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB647__) || defined(__AVR_AT90USB1286__) || defined(__AVR_AT90USB1287__)
 #    define UDRn UDR1
 #    define UBRRnL UBRR1L
+#    define UBRRnH UBRR1H
 #    define UCSRnA UCSR1A
 #    define UCSRnB UCSR1B
 #    define UCSRnC UCSR1C
@@ -47,6 +48,7 @@
 #elif defined(__AVR_ATmega32A__)
 #    define UDRn UDR
 #    define UBRRnL UBRRL
+#    define UBRRnH UBRRH
 #    define UCSRnA UCSRA
 #    define UCSRnB UCSRB
 #    define UCSRnC UCSRC
@@ -62,6 +64,7 @@
 #elif defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__)
 #    define UDRn UDR0
 #    define UBRRnL UBRR0L
+#    define UBRRnH UBRR0H
 #    define UCSRnA UCSR0A
 #    define UCSRnB UCSR0B
 #    define UCSRnC UCSR0C
@@ -89,8 +92,12 @@ static volatile uint8_t rx_buffer_tail;
 
 // Initialize the UART
 void uart_init(uint32_t baud) {
+    uint16_t ubrr;
+
+    ubrr = (F_CPU / 4 / baud - 1) / 2;
     cli();
-    UBRRnL         = (F_CPU / 4 / baud - 1) / 2;
+    UBRRnL         = ubrr;
+    UBRRnH         = ubrr >> 8;
     UCSRnA         = (1 << U2Xn);
     UCSRnB         = (1 << RXENn) | (1 << TXENn) | (1 << RXCIEn);
     UCSRnC         = (1 << UCSZn1) | (1 << UCSZn0);
@@ -151,6 +158,14 @@ bool uart_available(void) {
     tail = rx_buffer_tail;
     if (head >= tail) return (head - tail) > 0;
     return (RX_BUFFER_SIZE + head - tail) > 0;
+}
+
+bool uart_write_available(void) {
+    uint8_t i;
+
+    i = tx_buffer_head + 1;
+    if (i >= TX_BUFFER_SIZE) i = 0;
+    return (tx_buffer_tail != i);
 }
 
 // Transmit Interrupt

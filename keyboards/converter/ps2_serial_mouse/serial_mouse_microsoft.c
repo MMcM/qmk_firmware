@@ -19,8 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "protocol/serial.h"
-#include "serial_mouse.h"
+#include "uart.h"
 #include "report.h"
 #include "host.h"
 #include "timer.h"
@@ -41,15 +40,15 @@ void serial_mouse_task(void) {
 
     static report_mouse_t report = {};
 
-    int16_t rcv;
+    uint8_t rcv;
 
-    rcv = serial_recv2();
-    if (rcv < 0) /* no new data */
-        return;
+    if (!uart_available()) /* no new data */
+      return;
 
+    rcv = uart_read();
     rcv &= 0x7F;
 
-    if (debug_mouse) xprintf("serial_mouse: byte: %04X\n", rcv);
+    if (debug_mouse) xprintf("serial_mouse: byte: %02X\n", rcv);
 
     /*
      * If bit 6 is one, this signals the beginning
