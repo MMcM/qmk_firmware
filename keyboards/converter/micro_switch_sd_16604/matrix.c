@@ -26,6 +26,20 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 #define SHIFT_PIN PIND
 #define SHIFT_PORT PORTD
 #define SHIFT_STROBE_MASK (1<<0)
@@ -92,7 +106,7 @@ void matrix_init(void) {
     
     DSR_DDR |= DSR_MASK;        // Output low = turn on.
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 static inline void key_press(uint8_t code) {
@@ -133,20 +147,6 @@ uint8_t matrix_scan(void) {
         key_press(entry.code);
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

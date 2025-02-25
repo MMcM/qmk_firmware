@@ -37,6 +37,8 @@ make omron_turbo SILENT=true &&
 
 make converter/apollo SILENT=true &&
 make converter/apple_lisa SILENT=true &&
+make converter/micro_switch_sc_37225 SILENT=true &&
+make converter/micro_switch_sd_16604 SILENT=true &&
 make converter/micro_switch_sn_5 SILENT=true &&
 make converter/nec_apc_h25 SILENT=true &&
 make converter/nec_pc_6601sr SILENT=true &&
@@ -82,8 +84,6 @@ make converter/ibm_pcjr SILENT=true &&
 make converter/k1780 SILENT=true &&
 make converter/lk201 SILENT=true &&
 make converter/memorex_2051 SILENT=true &&
-make converter/micro_switch_sc_37225 SILENT=true &&
-make converter/micro_switch_sd_16604 SILENT=true &&
 make converter/mitsumi_one_wire_keypad/compaq_2697 SILENT=true &&
 make converter/mitsumi_one_wire_keypad/toshiba_pa7354e SILENT=true &&
 make converter/nmb_tvi SILENT=true &&
