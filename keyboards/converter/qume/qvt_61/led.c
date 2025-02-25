@@ -1,5 +1,4 @@
 
-#include "stdint.h"
 #include "led.h"
 
 #define LED_MASK_HOLD_SCREEN (1<<0)
@@ -10,15 +9,15 @@
 extern uint8_t led_mask;
 extern bool led_pending;
 
-void led_set(uint8_t usb_led) {
+void led_update_ports(led_t led_state) {
     uint8_t mask = 0;
-    if (usb_led & (1<<USB_LED_SCROLL_LOCK))
+    if (led_state.scroll_lock)
         mask |= LED_MASK_HOLD_SCREEN;
-    if (usb_led & (1<<USB_LED_NUM_LOCK))
+    if (led_state.num_lock)
         mask |= LED_MASK_WAIT;
-    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+    if (led_state.caps_lock)
         mask |= LED_MASK_LOCK;
-    if (usb_led & (1<<USB_LED_COMPOSE))
+    if (led_state.compose)
         mask |= LED_MASK_COMPOSE;
     if (led_mask != mask) {
         led_mask = mask;
