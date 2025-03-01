@@ -1,6 +1,7 @@
 
 #include "led.h"
 #include "ps2.h"
+#include "debug.h"
 
 /*
  * .---.---.  .---.   .---.---.---.---.  .---.---.---.---.   .---.---.  .---.---.  .---.---.
@@ -33,13 +34,13 @@
  */
 
 // Standard PS2 LEDs
-void led_set(uint8_t usb_led) {
+void led_update_ports(led_t led_state) {
     uint8_t ps2_led = 0;
-    if (usb_led &  (1<<USB_LED_SCROLL_LOCK))
+    if (led_state.scroll_lock)
         ps2_led |= (1<<PS2_LED_SCROLL_LOCK);
-    if (usb_led &  (1<<USB_LED_NUM_LOCK))
+    if (led_state.num_lock)
         ps2_led |= (1<<PS2_LED_NUM_LOCK);
-    if (usb_led &  (1<<USB_LED_CAPS_LOCK))
+    if (led_state.caps_lock)
         ps2_led |= (1<<PS2_LED_CAPS_LOCK);
     ps2_host_set_led(ps2_led);
 }

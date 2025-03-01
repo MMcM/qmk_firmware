@@ -1,10 +1,4 @@
 
-#pragma once
-
-#include "config_common.h"
-
-#define PRODUCT           Deko Fast Action Keyboard converter
-
 #define MATRIX_ROWS       16
 #define MATRIX_COLS       16
 
@@ -17,10 +11,9 @@
 /*
  * PS/2 USART configuration for ATMega32U4
  */
-#ifdef PS2_USE_USART
+#ifdef PS2_DRIVER_USART
 /* XCK for clock line */
 #define PS2_CLOCK_PIN   D5
-/* RXD for data line */
 #define PS2_DATA_PIN    D2
 
 /* synchronous, odd parity, 1-bit stop, 8-bit data, sample at falling edge */
@@ -59,7 +52,7 @@
 /*
  * PS/2 Interrupt configuration
  */
-#ifdef PS2_USE_INT
+#ifdef PS2_DRIVER_INTERRUPT
 /* uses INT1 for clock line(ATMega32U4) */
 #define PS2_CLOCK_PIN   D1
 #define PS2_DATA_PIN    D0
@@ -81,7 +74,7 @@
 /*
  * PS/2 Busywait configuration
  */
-#ifdef PS2_USE_BUSYWAIT
+#ifdef PS2_DRIVER_BUSYWAIT
 #define PS2_CLOCK_PIN   D1
 #define PS2_DATA_PIN    D0
 #endif

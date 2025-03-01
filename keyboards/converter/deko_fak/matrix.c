@@ -44,12 +44,26 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        xprintf("%c%X: ", row < 8 ? ' ' : 'E', row & 0x07);
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     matrix_clear();
 
     ps2_host_init();
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 typedef enum {
@@ -146,20 +160,6 @@ uint8_t matrix_scan(void) {
     }
 
     dprintf("r%02X%c", code, sent ? '\n' : ' ');
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        xprintf("%c%X: ", row < 8 ? ' ' : 'E', row & 0x07);
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }
