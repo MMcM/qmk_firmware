@@ -41,6 +41,7 @@ make converter/apple_lisa SILENT=true &&
 make converter/deko_fak SILENT=true &&
 make converter/micro_switch_sc_37225 SILENT=true &&
 make converter/micro_switch_sd_16604 SILENT=true &&
+make converter/micro_switch_sd_16713 SILENT=true &&
 make converter/micro_switch_sn_5 SILENT=true &&
 make converter/nec_apc_h25 SILENT=true &&
 make converter/nec_pc_6601sr SILENT=true &&
