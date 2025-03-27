@@ -194,6 +194,9 @@
     "cmm_studio/saka68": {
         "target": "cmm_studio/saka68/solder"
     },
+    "converter/micro_switch_sn_5": {
+         "target": "converter/micro_switch_sn_5/teensy_20"
+    },
     "converter/modelm101": {
         "target": "ibm/model_m/teensypp"
     },
@@ -202,6 +205,9 @@
     },
     "converter/modelm_ssk": {
         "target": "ibm/model_m_ssk/teensypp_ssk"
+    },
+    "converter/wyse_4p4c": {
+         "target": "converter/wyse_4p4c/teensy_20"
     },
     "cospad": {
         "target": "kprepublic/cospad"
