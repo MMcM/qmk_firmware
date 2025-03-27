@@ -39,6 +39,7 @@ make converter/amtelco_kb163 SILENT=true &&
 make converter/apollo SILENT=true &&
 make converter/apple_lisa SILENT=true &&
 make converter/deko_fak SILENT=true &&
+make converter/micral_9020 SILENT=true &&
 make converter/micro_switch_sc_37225 SILENT=true &&
 make converter/micro_switch_sd_16604 SILENT=true &&
 make converter/micro_switch_sd_16713 SILENT=true &&
