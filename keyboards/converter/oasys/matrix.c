@@ -4,8 +4,7 @@
 #include "print.h"
 #include "quantum.h"
 
-#include <avr/io.h>
-#include "protocol/serial.h"
+#include "uart.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -27,12 +26,28 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
-  
-    serial_init();
 
-    matrix_init_quantum();
+    /* open collector */
+    gpio_set_pin_input_high(D2);
+    uart_init(9600);
+
+    matrix_init_kb();
 }
 
 static inline void set_key(uint8_t code, bool state) {
@@ -52,12 +67,11 @@ uint8_t matrix_scan(void) {
 
     static uint8_t prefix_code = 0;
 
-    int16_t data2 = serial_recv2();
-    if (data2 < 0) {
-        return 0;
+    if (!uart_available()) {
+      return 0;
     }
 
-    uint8_t code = data2 & 0xFF;
+    uint8_t code = uart_read();
     dprintf("%02X%c", code, code & 0x80 ? ' ' : '\n');
     if ((code & 0x80) != 0) {
         prefix_code = code;
@@ -94,26 +108,12 @@ uint8_t matrix_scan(void) {
             oasys_is_jis = (prefix_code & 0x20) != 0;
             set_key(code, true);
         } else if (code == 0x7F) {
-            for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;            
+            for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0x00;
         } else {
             set_key(code, false);
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }
