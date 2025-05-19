@@ -59,6 +59,7 @@ make converter/standard_iie_tender_keypad SILENT=true &&
 make converter/tektronix_4051 SILENT=true &&
 make converter/tektronix_4120 SILENT=true &&
 make converter/uts SILENT=true &&
+make converter/wang SILENT=true &&
 make converter/wyse_4p4c SILENT=true &&
 
 exit
