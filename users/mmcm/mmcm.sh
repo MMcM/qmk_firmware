@@ -41,6 +41,10 @@ make converter/apple_lisa SILENT=true &&
 make converter/deko_fak SILENT=true &&
 make converter/hp_4953a SILENT=true &&
 make converter/intecolor SILENT=true &&
+make converter/alps_kpx_17/direct_astar SILENT=true &&
+make converter/alps_kpx_17/parallel_teensy_20 SILENT=true &&
+make converter/alps_kpx_17/serial_atto SILENT=true &&
+make converter/alps_kpx_17/serial_teensy_lc SILENT=true &&
 make converter/micral_9020 SILENT=true &&
 make converter/micro_switch_sc_37225 SILENT=true &&
 make converter/micro_switch_sd_16604 SILENT=true &&
@@ -69,7 +73,6 @@ exit
 
 make converter/adds_ascii SILENT=true &&
 make converter/alphameric SILENT=true &&
-make converter/alps_kpx_17 SILENT=true &&
 make converter/amiga SILENT=true &&
 make converter/ampex_219 SILENT=true &&
 make converter/atari/cx50 SILENT=true &&

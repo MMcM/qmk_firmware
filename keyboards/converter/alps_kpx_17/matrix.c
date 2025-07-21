@@ -4,12 +4,7 @@
 #include "print.h"
 #include "quantum.h"
 
-#if defined(__AVR__)
-#include <avr/io.h>
-#include "protocol/serial.h"
-#elif defined PROTOCOL_CHIBIOS
-#include "hal.h"
-#endif
+#include "uart.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -31,6 +26,20 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+  return matrix[row];
+}
+
+void matrix_print(void) {
+  print("\nr/c 01234567\n");
+  for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+    print_hex8(row); print(": ");
+    print_bin_reverse8(matrix_get_row(row));
+    print("\n");
+  }
+}
+
 #ifdef KPX_17S
 
 #define RC(r,c) ((r<<4)|c)
@@ -39,39 +48,39 @@ void matrix_scan_user(void) {
 // This LED is toggled by pressing the corresponding key.
 // There is no way to set it sending serial data, so that the TX (to kbd) direction evidently does nothing.
 static const uint8_t PROGMEM serial_row_col[128] = {
-  [0x41] = RC(1,1),
-  [0x79] = RC(1,1),
-  [0x5A] = RC(1,2),
-  [0x6A] = RC(1,2),
-  [0x5B] = RC(1,3),
-  [0x6B] = RC(1,3),
-  [0x5C] = RC(1,4),
-  [0x6C] = RC(1,4),
-  [0x56] = RC(2,1),
-  [0x66] = RC(2,1),
-  [0x57] = RC(2,2),
-  [0x67] = RC(2,2),
-  [0x58] = RC(2,3),
-  [0x68] = RC(2,3),
-  [0x5D] = RC(2,4),
-  [0x6D] = RC(2,4),
-  [0x53] = RC(3,1),
-  [0x63] = RC(3,1),
-  [0x54] = RC(3,2),
-  [0x64] = RC(3,2),
-  [0x55] = RC(3,3),
-  [0x65] = RC(3,3),
-  [0x50] = RC(4,1),
-  [0x60] = RC(4,1),
-  [0x51] = RC(4,2),
-  [0x61] = RC(4,2),
-  [0x52] = RC(4,3),
-  [0x62] = RC(4,3),
-  [0x74] = RC(4,4),
-  [0x5F] = RC(5,1),
-  [0x6F] = RC(5,1),
-  [0x5E] = RC(5,3),
-  [0x6E] = RC(5,3),
+  [0x41] = RC(0,0),
+  [0x79] = RC(0,0),
+  [0x5A] = RC(0,1),
+  [0x6A] = RC(0,1),
+  [0x5B] = RC(0,2),
+  [0x6B] = RC(0,2),
+  [0x5C] = RC(0,3),
+  [0x6C] = RC(0,3),
+  [0x56] = RC(1,0),
+  [0x66] = RC(1,0),
+  [0x57] = RC(1,1),
+  [0x67] = RC(1,1),
+  [0x58] = RC(1,2),
+  [0x68] = RC(1,2),
+  [0x5D] = RC(1,3),
+  [0x6D] = RC(1,3),
+  [0x53] = RC(2,0),
+  [0x63] = RC(2,0),
+  [0x54] = RC(2,1),
+  [0x64] = RC(2,1),
+  [0x55] = RC(2,2),
+  [0x65] = RC(2,2),
+  [0x50] = RC(3,0),
+  [0x60] = RC(3,0),
+  [0x51] = RC(3,1),
+  [0x61] = RC(3,1),
+  [0x52] = RC(3,2),
+  [0x62] = RC(3,2),
+  [0x74] = RC(3,3),
+  [0x5F] = RC(4,0),
+  [0x6F] = RC(4,0),
+  [0x5E] = RC(4,2),
+  [0x6E] = RC(4,2),
 };
 
 #endif
@@ -99,15 +108,7 @@ void matrix_init(void) {
   for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
 
 #ifdef KPX_17S
-#if defined(__AVR__)
-  serial_init();
-#elif defined PROTOCOL_CHIBIOS
-  palSetPadMode(GPIOB, 16, PAL_MODE_ALTERNATIVE_3); // pin 0 / B16 / RX1 = UART0_RX
-  palSetPadMode(GPIOB, 17, PAL_MODE_ALTERNATIVE_3); // pin 1 / B17 / TX1 = UART0_TX
-
-  static const SerialConfig sdcfg = { 1200 };
-  sdStart(&SD1, &sdcfg);
-#endif
+  uart_init(1200);
 #endif
 
 #ifdef KPX_17P
@@ -118,7 +119,7 @@ void matrix_init(void) {
   STATUS_PORT |= STATUS_MASK;
 #endif
 
-  matrix_init_quantum();
+  matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
@@ -128,32 +129,20 @@ uint8_t matrix_scan(void) {
     // There are no up transitions, so clear everything between codes.
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
     need_all_up = false;
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
   }
 
-  uint8_t data;
-
-#if defined(__AVR__)
-  int16_t data2 = serial_recv2();
-  if (data2 < 0) {
+  if (!uart_available()) {
     return 0;
   }
-  data = data2 & 0xFF;
-#elif defined PROTOCOL_CHIBIOS
-  msg_t msg = sdGetTimeout(&SD1, TIME_IMMEDIATE);
-  if (msg < 0) {
-    return 0;
-  }
-  data = msg & 0xFF;
-#endif
-
+  uint8_t data = uart_read();
   if (data < 128) {
     const uint8_t *p_row_col = serial_row_col + data;
     uint8_t row_col = pgm_read_byte(p_row_col);
     if (row_col != 0) {
-      uint8_t row = (row_col >> 4) - 1;
-      uint8_t col = (row_col & 0x0F) - 1;
+      uint8_t row = row_col >> 4;
+      uint8_t col = row_col & 0x0F;
       matrix[row] |= (1 << col);
       need_all_up = true;
     }
@@ -225,20 +214,6 @@ uint8_t matrix_scan(void) {
   }
 #endif
 
-  matrix_scan_quantum();
+  matrix_scan_kb();
   return 1;
-}
-
-void matrix_print(void) {
-  print("\nr/c 01234567\n");
-  for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-    print_hex8(row); print(": ");
-    print_bin_reverse8(matrix_get_row(row));
-    print("\n");
-  }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-  return matrix[row];
 }

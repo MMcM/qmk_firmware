@@ -1,0 +1,10 @@
+{
+    "processor": "atmega32u4",
+    "bootloader": "caterina"
+    "matrix_pins": {
+        "cols": ["C6", "D7", "E6", "B4"],
+        "rows": ["D2", "D3", "D1", "D0", "D4"]
+    },
+    "diode_direction": "ROW2COL",
+    "debounce": 5
+}
