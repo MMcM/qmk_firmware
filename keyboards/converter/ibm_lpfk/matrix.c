@@ -4,12 +4,7 @@
 #include "print.h"
 #include "quantum.h"
 
-#if defined(__AVR__)
-#include <avr/io.h>
-#include "protocol/serial.h"
-#elif defined PROTOCOL_CHIBIOS
-#include "hal.h"
-#endif
+#include "uart.h"
 
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -31,71 +26,61 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 01234567\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse8(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 static bool enabled;
 static uint16_t last_check_time;
 #define CHECK_INTERVAL 200
 #define RELEASE_INTERVAL 10
 
-#if defined(__AVR__)
 static inline void send_cmd(uint8_t cmd) {
-    serial_send(cmd);
+    uart_write(cmd);
 }
-#elif defined PROTOCOL_CHIBIOS
-static void send_cmd(uint8_t cmd) {
-    uint8_t buf[1];
-    buf[0] = cmd;
-    sdWrite(&SD1, buf, 1);
-}
-#endif
 
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
 
+    uart_init(9600);
+    // Need odd parity, since keypad does nothing until enabled by a command with just one bit.
 #if defined(__AVR__)
-    serial_init();
-#elif defined PROTOCOL_CHIBIOS
-    palSetPadMode(GPIOB, 16, PAL_MODE_ALTERNATIVE_3); // pin 0 / B16 / RX1 = UART0_RX
-    palSetPadMode(GPIOB, 17, PAL_MODE_ALTERNATIVE_3); // pin 1 / B17 / TX1 = UART0_TX
-
-    static const SerialConfig sdcfg = { 9600 };
-    sdStart(&SD1, &sdcfg);
-    *(SD1.uart.c1_p) |= UARTx_C1_M | UARTx_C1_PE | UARTx_C1_PT; // 9-bit mode, odd parity.
+    // Only UCSZn has been initialized (to 8-bit). Add parity enabled, odd parity.
+    UCSR1C |= _BV(UPM11) | _BV(UPM10);
+#elif defined(PROTOCOL_CHIBIOS)
+#if defined(MCU_KINETIS)
+    // SerialConfig struct only has baud rate. Set 9-bit, parity enable, parity type odd.
+    *(SD1.uart.c1_p) |= UARTx_C1_M | UARTx_C1_PE | UARTx_C1_PT;
+#else
+    // For WB32F, UART_PARITY can be set in config.h for that field of SerialConfig.
+    // For others using serial, SerialConfig is populated by UART_CR[1-3] defines.
+    // For RP2040, which uses the sio driver, UART_RP_LCR_H is added to uart_sio to allow override.
+    // For others using sio, SIO config again has UART_CR[1-3].
+#endif
 #endif
 
     enabled = false;
     last_check_time = timer_read();
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
-    debug_enable = debug_keyboard = true;
-
-    uint8_t data;
-    bool have_data;
-
-#if defined(__AVR__)
-    int16_t data2 = serial_recv2();
-    if (data2 < 0) {
-        have_data = false;
-    } else {
-        data = data2 & 0xFF;
-        have_data = true;
-    }
-#elif defined PROTOCOL_CHIBIOS
-    msg_t msg = sdGetTimeout(&SD1, TIME_IMMEDIATE);
-    if (msg < 0) {
-        have_data = false;
-    } else {
-        data = msg & 0xFF;
-        have_data = true;
-    }
-#endif
-
     static bool release_needed = false;
     static uint16_t last_press_time = 0;
 
-    if (have_data) {
+    if (uart_available()) {
+        uint8_t data = uart_read();
         dprintf("Received: %02X\n", data);
 
         if (release_needed) {
@@ -141,20 +126,6 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 01234567\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse8(matrix_get_row(row));
-        print("\n");
-    }
-}
-
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
 }

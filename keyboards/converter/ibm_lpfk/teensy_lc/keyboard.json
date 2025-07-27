@@ -1,0 +1,4 @@
+{
+    "processor": "MKL26Z64",
+    "bootloader": "halfkay"
+}

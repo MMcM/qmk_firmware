@@ -5,7 +5,7 @@ A converter for the IBM Lighted Program Function Keyboard.
 Each key has a green LED which can also be controlled.
 
 Keyboard Maintainer: [MMcM](https://github.com/MMcM)  
-Hardware Supported: IBM LPFK, Teensy LC
+Hardware Supported: IBM LPFK, Teensy 2.0, Teensy LC, KB2040
 
 Make example for this keyboard (after setting up your build environment):
 
@@ -31,3 +31,21 @@ A cable such as that will have the staggered pin in the middle row (5) connected
 | Blue   | 6   | 8        | RX (to kbd)   |
 | Violet | 7   | 7        |               |
 | Gray   | 8   | 6        |               |
+
+## Keys
+
+```
+    +---+---+---+---+
+    |00 |01 |02 |03 |
++---+---------------+---+
+|04 |05 |06 |07 |10 |11 |
++---+---------------+---+
+|12 |13 |14 |15 |16 |17 |
++---+---------------+---+
+|20 |21 |22 |23 |24 |25 |
++---+---------------+---+
+|26 |27 |30 |31 |32 |33 |
++---+---------------+---+
+    |34 |35 |36 |37 |
+    +---+---+---+---+
+```

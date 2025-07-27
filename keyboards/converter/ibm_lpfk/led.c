@@ -5,6 +5,7 @@
 #include "debug.h"
 #include "print.h"
 #include "quantum.h"
+#include "uart.h"
 
 #ifdef LED_MATRIX_ENABLE
 
@@ -61,13 +62,7 @@ static void flush(void) {
     buf[2] = pending_leds >> 16;
     buf[3] = pending_leds >> 8;
     buf[4] = pending_leds & 0xFF;
-#if defined(__AVR__)
-    for (uint8_t i = 0; i < 5; i++) {
-        serial_send(buf[i]);
-    }
-#elif defined PROTOCOL_CHIBIOS
-    sdWrite(&SD1, buf, 5);
-#endif
+    uart_transmit(buf, 5);
 }
 
 const led_matrix_driver_t led_matrix_driver = {

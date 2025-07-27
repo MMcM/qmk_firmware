@@ -50,10 +50,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     return true;
 }
 
-void led_matrix_indicators_kb(void) {
+bool led_matrix_indicators_kb(void) {
     for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
         led_matrix_set_value(i, i == last_led_index ? LED_MATRIX_MAXIMUM_BRIGHTNESS : 0);
     }
+    return true;
 }
 
 #endif

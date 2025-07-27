@@ -1,0 +1,5 @@
+{
+    "board": "GENERIC_PROMICRO_RP2040",
+    "bootloader": "rp2040",
+    "processor": "RP2040"
+}
