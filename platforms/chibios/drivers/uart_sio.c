@@ -72,10 +72,13 @@
 #endif
 
 #if defined(MCU_RP)
+#ifndef UART_RP_LCR_H
+#define UART_RP_LCR_H (UART_UARTLCR_H_WLEN_8BITS | UART_UARTLCR_H_FEN)
+#endif
 // 38400 baud, 8 data bits, 1 stop bit, no parity, no flow control
 static SIOConfig sioConfig = {
     .baud      = SIO_DEFAULT_BITRATE,
-    .UARTLCR_H = (UART_UARTLCR_H_WLEN_8BITS | UART_UARTLCR_H_FEN),
+    .UARTLCR_H = UART_RP_LCR_H,
     .UARTCR    = 0U,
     .UARTIFLS  = (UART_UARTIFLS_RXIFLSEL_1_8F | UART_UARTIFLS_TXIFLSEL_1_8E),
     .UARTDMACR = 0U,
