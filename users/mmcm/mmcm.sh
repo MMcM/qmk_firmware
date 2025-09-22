@@ -24,6 +24,7 @@ make laneware/lw67:mmcm SILENT=true &&
 make maple_computing/ivy:mmcm SILENT=true &&
 make misonoworks/karina:mmcm SILENT=true &&
 make null/st110r2:mmcm SILENT=true &&
+make s_ol/0xc_pad:mmcm SILENT=true &&
 make swiftrax/retropad:mmcm SILENT=true &&
 make tkc/m0lly:mmcm SILENT=true &&
 make tkc/tkc1800:mmcm SILENT=true &&
