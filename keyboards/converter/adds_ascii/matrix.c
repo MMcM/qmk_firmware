@@ -76,6 +76,20 @@ __attribute__ ((weak))
 void matrix_scan_user(void) {
 }
 
+inline
+matrix_row_t matrix_get_row(uint8_t row) {
+    return matrix[row];
+}
+
+void matrix_print(void) {
+    print("\nr/c 0123456789ABCDEF\n");
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_bin_reverse16(matrix_get_row(row));
+        print("\n");
+    }
+}
+
 void matrix_init(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) matrix[i] = 0;
 
@@ -94,7 +108,7 @@ void matrix_init(void) {
     TCCR3A = 0;                     // Normal
     TCCR3B = _BV(CS31) | _BV(CS30); // Prescalar = 64
 
-    matrix_init_quantum();
+    matrix_init_kb();
 }
 
 uint8_t matrix_scan(void) {
@@ -166,22 +180,8 @@ uint8_t matrix_scan(void) {
         receive_bit_count = 0;
         state = RECEIVING;
         last_time = now;
-    }    
-
-    matrix_scan_quantum();
-    return 1;
-}
-
-void matrix_print(void) {
-    print("\nr/c 0123456789ABCDEF\n");
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
-        print("\n");
     }
-}
 
-inline
-matrix_row_t matrix_get_row(uint8_t row) {
-    return matrix[row];
+    matrix_scan_kb();
+    return 1;
 }

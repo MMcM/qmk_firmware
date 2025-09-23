@@ -367,7 +367,7 @@ static void recv_change(uint16_t now, bool data_state, source_t from_source) {
     if (state == INIT || state == ERROR || sense_source != from_source) {
         return;
     }
-    
+
     if (state == IDLE) {
         if (data_state) {
             state = HEADER_1;
@@ -443,7 +443,7 @@ static void recv_change(uint16_t now, bool data_state, source_t from_source) {
             }
         }
     }
-    recv_error(width, from_source);    
+    recv_error(width, from_source);
 }
 
 // D0 is the data signal
@@ -612,7 +612,7 @@ uint8_t matrix_scan(void) {
     if (state == ERROR) {
         state = INIT;
         init_time = timer_read();
-        RECV_LED_PORT &= ~RECV_LED_MASK;        
+        RECV_LED_PORT &= ~RECV_LED_MASK;
     } else if (state == INIT) {
         if (timer_read() - init_time > INIT_DELAY_MS) {
             sense_source = read_sense_source();

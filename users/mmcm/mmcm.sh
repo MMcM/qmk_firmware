@@ -36,6 +36,7 @@ make bx_220 SILENT=true &&
 make nmb_111262 SILENT=true &&
 make omron_turbo SILENT=true &&
 
+make converter/adds_ascii SILENT=true &&
 make converter/amtelco_kb163 SILENT=true &&
 make converter/apollo SILENT=true &&
 make converter/apple_lisa SILENT=true &&
@@ -74,7 +75,6 @@ make converter/wyse_4p4c SILENT=true &&
 
 exit
 
-make converter/adds_ascii SILENT=true &&
 make converter/alphameric SILENT=true &&
 make converter/amiga SILENT=true &&
 make converter/ampex_219 SILENT=true &&
