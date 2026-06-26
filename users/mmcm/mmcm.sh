@@ -31,6 +31,7 @@ make tkc/tkc1800:mmcm SILENT=true &&
 make walletburner/neuron:mmcm SILENT=true &&
 make xiudi/xd60/rev3:mmcm_l5 SILENT=true &&
 make ymdk/yd60mq/16led:mmcm SILENT=true &&
+make nightly_boards/octopadplus:mmcm SILENT=true &&
 
 make bx_220 SILENT=true &&
 make nmb_111262 SILENT=true &&
